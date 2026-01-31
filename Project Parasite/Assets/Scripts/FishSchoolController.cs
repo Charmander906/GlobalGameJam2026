@@ -69,6 +69,16 @@ public class FishSchoolController : MonoBehaviour, IHasPlayer
             if (otherCollider != null)
                 Physics2D.IgnoreCollision(thisCollider, otherCollider);
         }
+
+        GameObject[] intangibleObjects = GameObject.FindGameObjectsWithTag("intangible");
+        foreach (GameObject obj in intangibleObjects)
+        {
+            if (obj == this.gameObject) continue;
+
+            Collider2D otherCollider = obj.GetComponent<Collider2D>();
+            if (otherCollider != null)
+                Physics2D.IgnoreCollision(thisCollider, otherCollider);
+        }
     }
 
     void Update()

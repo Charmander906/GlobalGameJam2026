@@ -122,10 +122,13 @@ MonoBehaviour:
   followVariance: 0.92
   sprite: {fileID: 5865385928007647768}
   rotationMultiplier: 1.5
-  maxAcceptableDistance: 5
-  mainTargetWeight: 0.65
-  schoolWeight: 0.35
-  mimicEfficiency: 0
+  controlThreshold: 30
+  blackFadeDuration: 10
+  blackProgress: 0
+  blackMaxAlpha: 0.8
+  timeControlled: 0
+  fadeOutSpeed: 0.2
+  rb: {fileID: 0}
 --- !u!61 &6984167640614518378
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -170,7 +173,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.9, y: 0.4}
+  m_Size: {x: 0.4, y: 0.3}
   m_EdgeRadius: 0
 --- !u!50 &3991767873605000326
 Rigidbody2D:

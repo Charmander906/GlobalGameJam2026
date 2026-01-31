@@ -7,9 +7,8 @@ public class FishController : MonoBehaviour, IHasPlayer
     public bool isControlled = false;
     public GameObject player;
     GameObject IHasPlayer.player => player;
-    //public AudioClip depossessSound;
 
-    [Header("Base Movement Settings")]
+    [Header("Movement Settings")]
     public float moveSpeed = 6f;
     public float maxSpeed = 7f;
     public float stopDrag = 5f;
@@ -18,44 +17,38 @@ public class FishController : MonoBehaviour, IHasPlayer
     public float stopRadius = 0.5f;
     public float turnSpeed = 6f;
 
+    [Header("Dash Settings (Matches Player)")]
+    public float dashSpeed = 35f;
+    public float dashDuration = 0.25f;
+    public float dashCooldown = 1f;
+    public float autoDashDistance = 4f;
+
+    private bool dashing = false;
+    private bool hasDash = true;
+
     [Header("Follower Settings")]
     public GameObject followTarget;
     public GameObject fishSchool;
     public float followVariance = 0.2f;
 
     [Header("Sprite Settings")]
-    /*public Sprite[] inanimateSprite;
-    public Sprite[] idleSprite;
-    public Sprite[] runSprite;
-    public Sprite[] jumpSprite;
-    public Sprite[] landSprite;
-    public Sprite backgroundSprite;
-    public float animDelay = 0.1f;*/
     public GameObject sprite;
     public float rotationMultiplier = 1.5f;
 
-    [Header("Blend Scores")]
-    public float maxAcceptableDistance = 5f;
-    [Range(0f, 1f)] public float mainTargetWeight = 0.65f;
-    [Range(0f, 1f)] public float schoolWeight = 0.35f;
-
-    [HideInInspector]
-    public float mimicEfficiency = 0f;
+    [Header("Control Blackening")]
+    public float controlThreshold = 3f;
+    public float blackFadeDuration = 5f;
+    [Range(0f, 1f)] public float blackProgress = 0f;
+    public float blackMaxDarkness = 0.8f;
+    [HideInInspector] public float timeControlled = 0f;
+    public float fadeOutSpeed = 0.2f;
 
     private Camera cam;
-    private Rigidbody2D rb;
-    private Vector3 spawnPoint;
+    public Rigidbody2D rb;
     private Vector2 targetVelocity;
-    private float currentAngle;
     private bool facingRight;
-    private Vector2 moveInput;
     private float currentTilt;
     private float sineTime;
-    /*private float animTimer = 0f;
-    private int lastFrameIndex = -1;
-    private int spriteOffset = 0;
-    private float spriteOffsetTimer = 0f;*/
-    //public AudioSource audioSource;
 
     void Start()
     {
@@ -68,13 +61,10 @@ public class FishController : MonoBehaviour, IHasPlayer
 
         sineTime = Random.value * 6f;
 
-        //audioSource = gameObject.AddComponent<AudioSource>();
-        //audioSource.spatialBlend = 0f;
-
         Collider2D thisCollider = GetComponent<Collider2D>();
         if (thisCollider == null)
         {
-            Debug.LogWarning("oops done fuked up");
+            Debug.LogWarning("oops dun fuked up again");
             return;
         }
 
@@ -82,27 +72,24 @@ public class FishController : MonoBehaviour, IHasPlayer
         {
             Collider2D playerCollider = player.GetComponent<Collider2D>();
             if (playerCollider != null)
-            {
                 Physics2D.IgnoreCollision(playerCollider, thisCollider);
-            }
         }
 
         GameObject[] possessObjects = GameObject.FindGameObjectsWithTag("possess");
         foreach (GameObject obj in possessObjects)
         {
-            if (obj == gameObject) continue;
+            if (obj == this.gameObject) continue;
 
             Collider2D otherCollider = obj.GetComponent<Collider2D>();
             if (otherCollider != null)
-            {
                 Physics2D.IgnoreCollision(thisCollider, otherCollider);
-            }
         }
     }
 
     void Update()
     {
         sineTime += Time.deltaTime;
+        HandleBlackening();
 
         if (isControlled)
         {
@@ -113,25 +100,32 @@ public class FishController : MonoBehaviour, IHasPlayer
             Vector2 toMouse = mouseWorldPos - transform.position;
             float distance = toMouse.magnitude;
 
+            if (Mouse.current.leftButton.wasPressedThisFrame && hasDash)
+            {
+                dashing = true;
+                hasDash = false;
+                Invoke(nameof(DashingFalse), dashDuration);
+            }
+
             if (distance <= stopRadius)
             {
                 targetVelocity = Vector2.zero;
             }
             else
             {
-                float speedFactor = Mathf.Clamp01((distance - stopRadius) / (slowRadius - stopRadius));
-                targetVelocity = toMouse.normalized * speedFactor * moveSpeed;
-                targetVelocity = Vector2.ClampMagnitude(targetVelocity, maxSpeed);
+                if (dashing)
+                {
+                    targetVelocity = toMouse.normalized * dashSpeed;
+                }
+                else
+                {
+                    float speedFactor = Mathf.Clamp01((distance - stopRadius) / (slowRadius - stopRadius));
+                    targetVelocity = toMouse.normalized * speedFactor * moveSpeed;
+                    targetVelocity = Vector2.ClampMagnitude(targetVelocity, maxSpeed);
+                }
             }
-
-            float distToMain = Vector3.Distance(transform.position, followTarget.transform.position);
-            float distToSchool = Vector3.Distance(transform.position, fishSchool.transform.position);
-
-            float mainScore = Mathf.Clamp01(1f - (distToMain / maxAcceptableDistance));
-            float schoolScore = Mathf.Clamp01(1f - (distToSchool / maxAcceptableDistance));
-
-            mimicEfficiency = (mainScore * mainTargetWeight) + (schoolScore * schoolWeight);
         }
+
         else if (followTarget != null)
         {
             Vector3 targetPos = followTarget.transform.position;
@@ -146,13 +140,26 @@ public class FishController : MonoBehaviour, IHasPlayer
             Vector2 toTarget = targetPos - transform.position;
             float distance = toTarget.magnitude;
 
-            float speedFactor = 1f;
+            if (distance > autoDashDistance && hasDash)
+            {
+                dashing = true;
+                hasDash = false;
+                Invoke(nameof(DashingFalse), dashDuration);
+            }
 
-            if (distance < slowRadius)
-                speedFactor = Mathf.Min((distance / slowRadius) + 0.5f, 1f);
-            
-            Vector2 desiredVelocity = toTarget.normalized * moveSpeed * speedFactor;
-            targetVelocity = Vector2.ClampMagnitude(desiredVelocity, maxSpeed);
+            if (dashing)
+            {
+                targetVelocity = toTarget.normalized * dashSpeed;
+            }
+            else
+            {
+                float speedFactor = 1f;
+                if (distance < slowRadius)
+                    speedFactor = Mathf.Min((distance / slowRadius) + 0.5f, 1f);
+
+                Vector2 desiredVelocity = toTarget.normalized * moveSpeed * speedFactor;
+                targetVelocity = Vector2.ClampMagnitude(desiredVelocity, maxSpeed);
+            }
         }
     }
 
@@ -168,18 +175,12 @@ public class FishController : MonoBehaviour, IHasPlayer
         if (vel.sqrMagnitude > 0.01f)
         {
             vel.Normalize();
-
             bool facingRight_ = vel.x >= 0f;
-            if (facingRight_ != facingRight)
-            {
-                currentTilt *= -1f;
-                facingRight = facingRight_;
-            }
+            if (facingRight_ != facingRight) facingRight = facingRight_;
 
             sprite.transform.localScale = new Vector3(facingRight ? 1f : -1f, 1f, 1f);
 
-            float targetTilt = Mathf.Clamp(vel.y * rotationMultiplier * 80f, -80f, 80f) * (facingRight ? 1f : -1f);
-
+            float targetTilt = Mathf.Clamp(vel.y * rotationMultiplier * 45f, -80f, 80f) * (facingRight ? 1f : -1f);
             currentTilt = Mathf.Lerp(currentTilt, targetTilt, turnSpeed * Time.fixedDeltaTime);
         }
         else
@@ -190,30 +191,43 @@ public class FishController : MonoBehaviour, IHasPlayer
         sprite.transform.rotation = Quaternion.Euler(0f, 0f, currentTilt);
     }
 
-    void OnCollisionEnter2D(Collision2D collision) { }
-
-    void OnCollisionStay2D(Collision2D collision) { }
-
-    private void OnTriggerStay2D(Collider2D other) { }
-
-    public void Depossess()
+    void DashingFalse()
     {
-        //audioSource.PlayOneShot(depossessSound);
-        //audioSource.PlayOneShot(dieSound);
-        if (player.GetComponent<PlayerController>().control == gameObject && !player.GetComponent<PlayerController>().isSwimming)
+        dashing = false;
+        Invoke(nameof(DashCooldown), dashCooldown);
+    }
+
+    void DashCooldown()
+    {
+        hasDash = true;
+    }
+
+    void HandleBlackening()
+    {
+        if (isControlled)
         {
-            PlayerController pc = player.GetComponent<PlayerController>();
-            Rigidbody2D rb = player.GetComponent<Rigidbody2D>();
+            timeControlled += Time.deltaTime;
+            if (timeControlled > controlThreshold)
+                blackProgress = Mathf.Clamp01((timeControlled - controlThreshold) / blackFadeDuration);
+        }
+        else
+        {
+            if (blackProgress > 0f)
+            {
+                blackProgress -= fadeOutSpeed * Time.deltaTime;
+                blackProgress = Mathf.Max(0f, blackProgress);
+            }
+        }
 
-            pc.isSwimming = true;
+        ApplyBlackTint(blackProgress);
+    }
 
-            Vector2 mouseWorldPos = pc.cam.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-
-            Vector2 direction = (mouseWorldPos - (Vector2)player.transform.position).normalized;
-
-            rb.linearVelocity = direction * pc.moveSpeed;
-
-            isControlled = false;
+    void ApplyBlackTint(float t)
+    {
+        if (sprite.TryGetComponent<SpriteRenderer>(out SpriteRenderer sr))
+        {
+            float darkness = Mathf.Lerp(1f, 1f - blackMaxDarkness, t);
+            sr.color = new Color(darkness, darkness, darkness, 1f);
         }
     }
 }
