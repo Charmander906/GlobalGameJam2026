@@ -23,8 +23,6 @@ public class PlayerController : MonoBehaviour
     public float slowRadius = 2.5f;
     public float stopRadius = 0.5f;
     public float turnSpeed = 6f;
-    public float dashSpeed = 35f;
-    public float dashDuration = 0.25f;
 
     [Header("Camera Settings")]
     public Camera cam;
@@ -35,7 +33,6 @@ public class PlayerController : MonoBehaviour
     private float currentAngle;
     private bool facingRight;
     private float currentTilt;
-    private static bool dashing;
     //private AudioSource audioSource;
 
     void Start()
@@ -68,18 +65,12 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                if (dashing) {
-                    targetVelocity = toMouse.normalized * dashSpeed;
-                }
-                else
-                {
-                    float speedFactor = (distance / (slowRadius - stopRadius)) - (stopRadius / (slowRadius - stopRadius));
+                float speedFactor = (distance / (slowRadius - stopRadius)) - (stopRadius / (slowRadius - stopRadius));
 
-                    float speed = speedFactor * moveSpeed;
+                float speed = speedFactor * moveSpeed;
 
-                    targetVelocity = toMouse.normalized * speed;
-                    targetVelocity = Vector2.ClampMagnitude(targetVelocity, maxSpeed);
-                }
+                targetVelocity = toMouse.normalized * speed;
+                targetVelocity = Vector2.ClampMagnitude(targetVelocity, maxSpeed);
             }
         }
         else
@@ -87,11 +78,7 @@ public class PlayerController : MonoBehaviour
             targetVelocity = Vector2.zero;
             rb.position = control.GetComponent<Rigidbody2D>().position;
         }
-        //Dash script
-        if (Mouse.current.leftButton.wasPressedThisFrame && dashing == false) {
-            dashing = true;
-            Invoke("DashingFalse", dashDuration);
-        }
+
         if (Mouse.current.rightButton.wasPressedThisFrame)
         {
             if (isSwimming)
@@ -188,9 +175,5 @@ public class PlayerController : MonoBehaviour
         }
 
         return controlN;
-    }
-    void DashingFalse(){
-        Debug.Log("fasle");
-        dashing = false;
     }
 }
