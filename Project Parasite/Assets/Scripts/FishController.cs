@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class FishController : MonoBehaviour
+public class FishController : MonoBehaviour, IHasPlayer
 {
     [Header("Fish Settings")]
     public bool isControlled = false;
     public GameObject player;
+    GameObject IHasPlayer.player => player;
     //public AudioClip depossessSound;
 
     [Header("Base Movement Settings")]
@@ -49,7 +50,7 @@ public class FishController : MonoBehaviour
     private bool facingRight;
     private Vector2 moveInput;
     private float currentTilt;
-    private float sineTime = 0f;
+    private float sineTime;
     /*private float animTimer = 0f;
     private int lastFrameIndex = -1;
     private int spriteOffset = 0;
@@ -69,7 +70,8 @@ public class FishController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         rb.freezeRotation = true;
         cam = player.GetComponent<PlayerController>().cam;
-        sineTime = Random.value * 6;
+
+        sineTime = Random.value * 6f;
 
         //audioSource = gameObject.AddComponent<AudioSource>();
         //audioSource.spatialBlend = 0f;
@@ -145,7 +147,7 @@ public class FishController : MonoBehaviour
 
             targetPos += new Vector3(
                 Random.Range(-followVariance, followVariance),
-                Random.Range(-followVariance, followVariance) + (Mathf.Sin(sineTime) * 1.5f),
+                Random.Range(-followVariance, followVariance) + (Mathf.Sin(sineTime) * followVariance),
                 0f
             );
 
