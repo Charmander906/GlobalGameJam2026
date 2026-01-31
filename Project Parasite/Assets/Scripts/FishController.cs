@@ -19,6 +19,7 @@ public class FishController : MonoBehaviour
 
     [Header("Follower Settings")]
     public GameObject followTarget;
+    public GameObject fishSchool;
     public float followVariance = 0.2f;
 
     [Header("Sprite Settings")]
@@ -31,9 +32,16 @@ public class FishController : MonoBehaviour
     public float animDelay = 0.1f;*/
     public GameObject sprite;
     public float rotationMultiplier = 1.5f;
-    
-    private Camera cam;
 
+    [Header("Blend Scores")]
+    public float maxAcceptableDistance = 5f;
+    [Range(0f, 1f)] public float mainTargetWeight = 0.65f;
+    [Range(0f, 1f)] public float schoolWeight = 0.35f;
+
+    [HideInInspector]
+    public float mimicEfficiency = 0f;
+
+    private Camera cam;
     private Rigidbody2D rb;
     private Vector3 spawnPoint;
     private Vector2 targetVelocity;
@@ -41,6 +49,7 @@ public class FishController : MonoBehaviour
     private bool facingRight;
     private Vector2 moveInput;
     private float currentTilt;
+    private float sineTime = 0f;
     /*private float animTimer = 0f;
     private int lastFrameIndex = -1;
     private int spriteOffset = 0;
@@ -60,6 +69,7 @@ public class FishController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         rb.freezeRotation = true;
         cam = player.GetComponent<PlayerController>().cam;
+        sineTime = Random.value * 6;
 
         //audioSource = gameObject.AddComponent<AudioSource>();
         //audioSource.spatialBlend = 0f;
@@ -95,6 +105,8 @@ public class FishController : MonoBehaviour
 
     void Update()
     {
+        sineTime += Time.deltaTime;
+
         if (isControlled)
         {
             Vector2 mouseScreenPos = Mouse.current.position.ReadValue();
@@ -118,6 +130,13 @@ public class FishController : MonoBehaviour
                 targetVelocity = Vector2.ClampMagnitude(targetVelocity, maxSpeed);
             }
 
+            float distToMain = Vector3.Distance(transform.position, followTarget.transform.position);
+            float distToSchool = Vector3.Distance(transform.position, fishSchool.transform.position);
+
+            float mainScore = Mathf.Clamp01(1f - (distToMain / maxAcceptableDistance));
+            float schoolScore = Mathf.Clamp01(1f - (distToSchool / maxAcceptableDistance));
+
+            mimicEfficiency = (mainScore * mainTargetWeight) + (schoolScore * schoolWeight);
         }
         else if (followTarget != null)
         {
@@ -126,7 +145,7 @@ public class FishController : MonoBehaviour
 
             targetPos += new Vector3(
                 Random.Range(-followVariance, followVariance),
-                Random.Range(-followVariance, followVariance),
+                Random.Range(-followVariance, followVariance) + (Mathf.Sin(sineTime) * 1.5f),
                 0f
             );
 

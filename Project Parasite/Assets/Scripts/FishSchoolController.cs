@@ -11,6 +11,6 @@ public class FishSchoolController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position += new Vector3(7f * Time.deltaTime, 0f, 0f);
+        transform.position += new Vector3(6f * Time.deltaTime, 0f, 0f);
     }
 }
