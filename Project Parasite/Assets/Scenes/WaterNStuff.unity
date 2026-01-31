@@ -4505,6 +4505,9 @@ MonoBehaviour:
   music4: {fileID: 8300000, guid: 7b9c6345f53b8e5419fa99cf5e153b32, type: 3}
   music5: {fileID: 8300000, guid: 452aa1681a6b1c84492d24983edf1eb4, type: 3}
   music6: {fileID: 8300000, guid: 38568f837966e244cb0b24149768f1b8, type: 3}
+  player: {fileID: 285284370}
+  numberOfMusicClips: 6
+  mapHeight: 250
   desiredTrack: 0
 --- !u!81 &1350381286
 AudioListener:

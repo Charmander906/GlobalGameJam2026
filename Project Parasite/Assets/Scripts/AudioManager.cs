@@ -12,14 +12,19 @@ public class AudioManager : MonoBehaviour
     public AudioClip music4;
     public AudioClip music5;
     public AudioClip music6;
-    private AudioClip[] musicClips = new AudioClip[6];
-
+    public GameObject player;
+    public int numberOfMusicClips;
+    private AudioClip[] musicClips;
+    public float mapHeight;
     private int currentTrack = -1;
     public int desiredTrack;
+    private float playerStartingY;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        playerStartingY = player.transform.position.y;
+        musicClips = new AudioClip[numberOfMusicClips];
         musicClips[0] = music1;
         musicClips[1] = music2;
         musicClips[2] = music3;
@@ -31,6 +36,8 @@ public class AudioManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        desiredTrack = Mathf.FloorToInt((player.transform.position.y - playerStartingY) * numberOfMusicClips / mapHeight); 
+        if (desiredTrack < 0) desiredTrack = 0;
         if(currentTrack != desiredTrack) {
               musicSource.clip = musicClips[desiredTrack];
               currentTrack = desiredTrack;
