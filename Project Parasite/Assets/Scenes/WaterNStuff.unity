@@ -431,6 +431,8 @@ MonoBehaviour:
   slowRadius: 50.83
   stopRadius: 0.8
   turnSpeed: 10
+  dashSpeed: 35
+  dashDuration: 0.25
   cam: {fileID: 519420031}
 --- !u!50 &285284372
 Rigidbody2D:
@@ -4233,6 +4235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da8d3d54e4c37b2479b686992efd4d89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  moveType: 0
 --- !u!1 &1111005973
 GameObject:
   m_ObjectHideFlags: 0
