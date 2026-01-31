@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections;
 using System.Collections.Generic;
@@ -7,8 +7,8 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
     [Header("Player Settings")]
-    public bool isFloating = true;
-    //public GameObject control;
+    public bool isSwimming = true;
+    public GameObject control;
     //public AudioClip hitSound;
 
     [Header("Sprite Settings")]
@@ -22,16 +22,17 @@ public class PlayerController : MonoBehaviour
     public float moveDrag = 8f;
     public float slowRadius = 2.5f;
     public float stopRadius = 0.5f;
+    public float turnSpeed = 6f;
 
     [Header("Camera Settings")]
     public Camera cam;
 
     private Rigidbody2D rb;
-    private Vector2 moveInput;
     private Vector3 spawnPoint;
     private Vector2 targetVelocity;
     private float currentAngle;
-    public float turnSpeed = 6f;
+    private bool facingRight;
+    private float currentTilt;
     //private AudioSource audioSource;
 
     void Start()
@@ -56,29 +57,54 @@ public class PlayerController : MonoBehaviour
         Vector2 toMouse = mouseWorldPos - transform.position;
         float distance = toMouse.magnitude;
 
-        if (isFloating)
+        if (isSwimming)
         {
-            if (distance < stopRadius)
+            if (distance <= stopRadius)
             {
                 targetVelocity = Vector2.zero;
             }
             else
             {
-                float speedFactor = 1f;
+                float speedFactor = (distance / (slowRadius - stopRadius)) - (stopRadius / (slowRadius - stopRadius));
 
-                if (distance < slowRadius)
-                    speedFactor = distance / slowRadius;
+                float speed = speedFactor * moveSpeed;
 
-                Vector2 desiredVelocity = toMouse.normalized * moveSpeed * speedFactor;
-                targetVelocity = Vector2.ClampMagnitude(desiredVelocity, maxSpeed);
+                targetVelocity = toMouse.normalized * speed;
+                targetVelocity = Vector2.ClampMagnitude(targetVelocity, maxSpeed);
             }
         }
         else
         {
             targetVelocity = Vector2.zero;
+            rb.position = control.GetComponent<Rigidbody2D>().position;
+        }
+
+        if (Mouse.current.rightButton.wasPressedThisFrame)
+        {
+            if (isSwimming)
+            {
+                control = CheckPossess();
+                if (control != null)
+                {
+                    control.GetComponent<FishController>().isControlled = true;
+                    isSwimming = false;
+                    sprite.GetComponent<SpriteRenderer>().enabled = false;
+                    //audioSource.PlayOneShot(possessSound);
+                }
+            }
+            else
+            {
+                GameObject tempControl = CheckPossess();
+
+                isSwimming = true;
+                sprite.GetComponent<SpriteRenderer>().enabled = true;
+                //audioSource.PlayOneShot(depossessSound);
+                control.GetComponent<FishController>().isControlled = false;
+
+                rb.linearVelocity = Vector2.zero;
+            }
         }
     }
-
 
     void FixedUpdate()
     {
@@ -87,18 +113,67 @@ public class PlayerController : MonoBehaviour
         if (targetVelocity.magnitude < 0.05f)
             rb.linearVelocity = Vector2.Lerp(rb.linearVelocity, Vector2.zero, stopDrag * Time.fixedDeltaTime);
 
-        // Circular swimming-style rotation
-        if (rb.linearVelocity.sqrMagnitude > 0.01f)
-        {
-            float targetAngle = Mathf.Atan2(rb.linearVelocity.y, rb.linearVelocity.x) * Mathf.Rad2Deg;
-            currentAngle = Mathf.LerpAngle(currentAngle, targetAngle, turnSpeed * Time.fixedDeltaTime);
-            sprite.transform.rotation = Quaternion.Euler(0, 0, currentAngle);
-        }
-    }
+        Vector2 vel = rb.linearVelocity;
 
+        if (vel.sqrMagnitude > 0.01f)
+        {
+            vel.Normalize();
+
+            bool facingRight_ = vel.x >= 0f;
+            if (facingRight_ != facingRight)
+            {
+                currentTilt *= -1f;
+                facingRight = facingRight_;
+            }
+
+            sprite.transform.localScale = new Vector3(facingRight ? 1f : -1f, 1f, 1f);
+
+            float targetTilt = Mathf.Clamp(vel.y * rotationMultiplier * 80f, -80f, 80f) * (facingRight ? 1f : -1f);
+
+            currentTilt = Mathf.Lerp(currentTilt, targetTilt, turnSpeed * Time.fixedDeltaTime);
+        }
+        else
+        {
+            currentTilt = Mathf.Lerp(currentTilt, 0f, turnSpeed * Time.fixedDeltaTime);
+        }
+
+        sprite.transform.rotation = Quaternion.Euler(0f, 0f, currentTilt);
+    }
 
     private void OnTriggerStay2D(Collider2D other)
     {
 
+    }
+
+    private GameObject CheckPossess()
+    {
+        GameObject controlN = null;
+
+        // Get all colliders overlapping the player's BoxCollider2D
+        BoxCollider2D box = GetComponent<BoxCollider2D>();
+        Collider2D[] results = Physics2D.OverlapBoxAll(
+            transform.position,
+            box.size,
+            0f
+        );
+
+        foreach (Collider2D collider in results)
+        {
+            if (collider.gameObject.tag == "possess")
+            {
+                if (controlN == null) controlN = collider.gameObject;
+                else
+                {
+                    Vector3 distanceC = controlN.transform.position - transform.position;
+                    Vector3 distanceN = collider.gameObject.transform.position - transform.position;
+                    if (distanceN.magnitude < distanceC.magnitude)
+                    {
+                        controlN = collider.gameObject;
+                    }
+                }
+            }
+        }
+
+        return controlN;
     }
 }
