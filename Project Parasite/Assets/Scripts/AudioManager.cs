@@ -4,7 +4,6 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     public AudioSource musicSource;
-    public AudioSource musicSource2;
     public AudioSource SFXSource;
 
     public AudioClip music1;
@@ -16,7 +15,6 @@ public class AudioManager : MonoBehaviour
     private AudioClip[] musicClips = new AudioClip[6];
 
     private int currentTrack = -1;
-    private bool source1 = false;
     public int desiredTrack;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -34,29 +32,13 @@ public class AudioManager : MonoBehaviour
     void Update()
     {
         if(currentTrack != desiredTrack) {
-            if (source1)
-            {
-                musicSource2.clip = musicClips[desiredTrack];
-                currentTrack = desiredTrack;
-            }
-            else {
-                musicSource.clip = musicClips[desiredTrack];
-                currentTrack = desiredTrack;
-            }
+              musicSource.clip = musicClips[desiredTrack];
+              currentTrack = desiredTrack;
         }
-        if (!musicSource.isPlaying && !musicSource2.isPlaying)
+        
+        if (!musicSource.isPlaying)
         {
-            if (source1) {
-                musicSource2.Play();
-                source1 = false;
-                musicSource.clip = musicClips[desiredTrack];
-            }
-            else
-            {
-                musicSource.Play();
-                source1 = true;
-                musicSource2.clip = musicClips[desiredTrack];
-            }
+            musicSource.Play();
         }
     }
 }
