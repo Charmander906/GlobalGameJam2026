@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Camera Settings")]
     public Camera cam;
-
+    
     private Rigidbody2D rb;
     private Vector3 spawnPoint;
     private Vector2 targetVelocity;
@@ -105,6 +105,7 @@ public class PlayerController : MonoBehaviour
                     control.GetComponent<FishController>().isControlled = true;
                     isSwimming = false;
                     sprite.GetComponent<SpriteRenderer>().enabled = false;
+                    GetComponent<BoxCollider2D>().enabled = false;
                     //audioSource.PlayOneShot(possessSound);
                 }
             }
@@ -114,6 +115,7 @@ public class PlayerController : MonoBehaviour
 
                 isSwimming = true;
                 sprite.GetComponent<SpriteRenderer>().enabled = true;
+                GetComponent<BoxCollider2D>().enabled = true;
                 //audioSource.PlayOneShot(depossessSound);
                 control.GetComponent<FishController>().isControlled = false;
 
@@ -144,7 +146,7 @@ public class PlayerController : MonoBehaviour
 
             sprite.transform.localScale = new Vector3(facingRight ? 1f : -1f, 1f, 1f);
 
-            float targetTilt = Mathf.Clamp(vel.y * rotationMultiplier * 80f, -80f, 80f) * (facingRight ? 1f : -1f);
+            float targetTilt = Mathf.Clamp(vel.y * rotationMultiplier * 45f, -80f, 80f) * (facingRight ? 1f : -1f);
 
             currentTilt = Mathf.Lerp(currentTilt, targetTilt, turnSpeed * Time.fixedDeltaTime);
         }

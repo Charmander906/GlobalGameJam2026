@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13b75c95f34a00d4e8c04f76b73312e6, type: 3}
+  m_Name: Seaweed
+  m_EditorClassIdentifier: Unity.2D.Tilemap.Extras::UnityEngine.Tilemaps.AnimatedTile
+  m_AnimatedSprites:
+  - {fileID: -5352640175447645027, guid: 97158b432d9043b41b877f7f53b1538e, type: 3}
+  - {fileID: 1627073126378159443, guid: 97158b432d9043b41b877f7f53b1538e, type: 3}
+  - {fileID: 9113502216287490165, guid: 97158b432d9043b41b877f7f53b1538e, type: 3}
+  - {fileID: 1233488364194132728, guid: 97158b432d9043b41b877f7f53b1538e, type: 3}
+  - {fileID: 5110022875499451283, guid: 97158b432d9043b41b877f7f53b1538e, type: 3}
+  - {fileID: -1109560273, guid: 97158b432d9043b41b877f7f53b1538e, type: 3}
+  - {fileID: 965916950, guid: 97158b432d9043b41b877f7f53b1538e, type: 3}
+  - {fileID: -2108958461, guid: 97158b432d9043b41b877f7f53b1538e, type: 3}
+  m_MinSpeed: 12
+  m_MaxSpeed: 12
+  m_AnimationStartTime: 0
+  m_AnimationStartFrame: 0
+  m_TileColliderType: 0
+  m_TileAnimationFlags: 0

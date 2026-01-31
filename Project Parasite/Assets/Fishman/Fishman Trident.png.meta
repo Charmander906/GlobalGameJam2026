@@ -1,0 +1,832 @@
+fileFormatVersion: 2
+guid: 3f5db50816e6a8e40bcdfefd8a697237
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 878491369775145097
+    second: Fishman Trident_0
+  - first:
+      213: 5087642048477343279
+    second: Fishman Trident_1
+  - first:
+      213: 6257262717012943950
+    second: Fishman Trident_2
+  - first:
+      213: 2612621023808436725
+    second: Fishman Trident_3
+  - first:
+      213: -8081371393520196338
+    second: Fishman Trident_4
+  - first:
+      213: -1061731304677937382
+    second: Fishman Trident_5
+  - first:
+      213: 6219225845008361151
+    second: Fishman Trident_6
+  - first:
+      213: -6835800266864575999
+    second: Fishman Trident_7
+  - first:
+      213: -237853536265995877
+    second: Fishman Trident_8
+  - first:
+      213: -414578018422033507
+    second: Fishman Trident_9
+  - first:
+      213: -1336203983106388919
+    second: Fishman Trident_10
+  - first:
+      213: -2256202695104847957
+    second: Fishman Trident_11
+  - first:
+      213: -3955854587625799009
+    second: Fishman Trident_12
+  - first:
+      213: -8617818254743476722
+    second: Fishman Trident_13
+  - first:
+      213: -3857545523448367790
+    second: Fishman Trident_14
+  - first:
+      213: -8623738243632743435
+    second: Fishman Trident_15
+  - first:
+      213: -2282806109190890333
+    second: Fishman Trident_16
+  - first:
+      213: 2766544791974240989
+    second: Fishman Trident_17
+  - first:
+      213: -1878827764622154231
+    second: Fishman Trident_18
+  - first:
+      213: -5323151373929133914
+    second: Fishman Trident_19
+  - first:
+      213: -2864508315236873768
+    second: Fishman Trident_20
+  - first:
+      213: 6756298856654352361
+    second: Fishman Trident_21
+  - first:
+      213: -7838767627251002393
+    second: Fishman Trident_22
+  - first:
+      213: -3888646563542176959
+    second: Fishman Trident_23
+  - first:
+      213: -2702290980492143184
+    second: Fishman Trident_24
+  - first:
+      213: -6964278296985575953
+    second: Fishman Trident_25
+  - first:
+      213: 5621443916960187860
+    second: Fishman Trident_26
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Fishman Trident_0
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 417
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 980a1b11f37013c00800000000000000
+      internalID: 878491369775145097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fishman Trident_1
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 413
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2e25d3dc7fea9640800000000000000
+      internalID: 5087642048477343279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fishman Trident_2
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 416
+        width: 37
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e442ad9e94346d650800000000000000
+      internalID: 6257262717012943950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fishman Trident_3
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 416
+        width: 37
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f9b1d89af4e14420800000000000000
+      internalID: 2612621023808436725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fishman Trident_4
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 418
+        width: 37
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e05a937d88339df80800000000000000
+      internalID: -8081371393520196338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fishman Trident_5
+      rect:
+        serializedVersion: 2
+        x: 421
+        y: 417
+        width: 37
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1f62c1f009f341f0800000000000000
+      internalID: -1061731304677937382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fishman Trident_6
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 314
+        width: 37
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb6e6a584f02f4650800000000000000
+      internalID: 6219225845008361151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fishman Trident_7
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 310
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10a340affdb5221a0800000000000000
+      internalID: -6835800266864575999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fishman Trident_8
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 310
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b997b4e0879f2bcf0800000000000000
+      internalID: -237853536265995877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fishman Trident_9
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 313
+        width: 37
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d93f4402d7f1f3af0800000000000000
+      internalID: -414578018422033507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fishman Trident_10
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 313
+        width: 37
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94c4b7f8e89d47de0800000000000000
+      internalID: -1336203983106388919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fishman Trident_11
+      rect:
+        serializedVersion: 2
+        x: 419
+        y: 315
+        width: 37
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: baf1ff84a9b50b0e0800000000000000
+      internalID: -2256202695104847957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fishman Trident_12
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 211
+        width: 37
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f920779263bf919c0800000000000000
+      internalID: -3955854587625799009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fishman Trident_13
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 211
+        width: 37
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e06632bd4fb576880800000000000000
+      internalID: -8617818254743476722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fishman Trident_14
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 211
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25536f9d8ce377ac0800000000000000
+      internalID: -3857545523448367790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fishman Trident_15
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 225
+        width: 44
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5fbb15802c3525880800000000000000
+      internalID: -8623738243632743435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fishman Trident_16
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 253
+        width: 66
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3acd59240f7d150e0800000000000000
+      internalID: -2282806109190890333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fishman Trident_17
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 248
+        width: 59
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd2e4dc94ddb46620800000000000000
+      internalID: 2766544791974240989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fishman Trident_18
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 144
+        width: 56
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9062e8f3a101de5e0800000000000000
+      internalID: -1878827764622154231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fishman Trident_19
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 143
+        width: 68
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a84257570e5026b0800000000000000
+      internalID: -5323151373929133914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fishman Trident_20
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 140
+        width: 61
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d947263dd83f38d0800000000000000
+      internalID: -2864508315236873768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fishman Trident_21
+      rect:
+        serializedVersion: 2
+        x: 249
+        y: 136
+        width: 67
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9efa243830233cd50800000000000000
+      internalID: 6756298856654352361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fishman Trident_22
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 137
+        width: 67
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e35fd4ef5a173390800000000000000
+      internalID: -7838767627251002393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fishman Trident_23
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 150
+        width: 61
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14b660bad80c80ac0800000000000000
+      internalID: -3888646563542176959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fishman Trident_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 70
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b5160caba88f7ad0800000000000000
+      internalID: -2702290980492143184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fishman Trident_25
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 65
+        width: 71
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fed563789c9e95f90800000000000000
+      internalID: -6964278296985575953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fishman Trident_26
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 63
+        width: 70
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d541337571630e40800000000000000
+      internalID: 5621443916960187860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Fishman Trident_0: 878491369775145097
+      Fishman Trident_1: 5087642048477343279
+      Fishman Trident_10: -1336203983106388919
+      Fishman Trident_11: -2256202695104847957
+      Fishman Trident_12: -3955854587625799009
+      Fishman Trident_13: -8617818254743476722
+      Fishman Trident_14: -3857545523448367790
+      Fishman Trident_15: -8623738243632743435
+      Fishman Trident_16: -2282806109190890333
+      Fishman Trident_17: 2766544791974240989
+      Fishman Trident_18: -1878827764622154231
+      Fishman Trident_19: -5323151373929133914
+      Fishman Trident_2: 6257262717012943950
+      Fishman Trident_20: -2864508315236873768
+      Fishman Trident_21: 6756298856654352361
+      Fishman Trident_22: -7838767627251002393
+      Fishman Trident_23: -3888646563542176959
+      Fishman Trident_24: -2702290980492143184
+      Fishman Trident_25: -6964278296985575953
+      Fishman Trident_26: 5621443916960187860
+      Fishman Trident_3: 2612621023808436725
+      Fishman Trident_4: -8081371393520196338
+      Fishman Trident_5: -1061731304677937382
+      Fishman Trident_6: 6219225845008361151
+      Fishman Trident_7: -6835800266864575999
+      Fishman Trident_8: -237853536265995877
+      Fishman Trident_9: -414578018422033507
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
