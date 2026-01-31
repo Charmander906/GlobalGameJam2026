@@ -112,15 +112,15 @@ MonoBehaviour:
   player: {fileID: 0}
   moveSpeed: 6
   maxSpeed: 7
-  stopDrag: 5
-  moveDrag: 8
+  stopDrag: 4
+  moveDrag: 2
   slowRadius: 2.5
   stopRadius: 0.5
   turnSpeed: 6
   followTarget: {fileID: 0}
   fishSchool: {fileID: 0}
   followVariance: 0.92
-  sprite: {fileID: 0}
+  sprite: {fileID: 5865385928007647768}
   rotationMultiplier: 1.5
   maxAcceptableDistance: 5
   mainTargetWeight: 0.65

@@ -59,13 +59,8 @@ public class FishController : MonoBehaviour, IHasPlayer
 
     void Start()
     {
-        moveSpeed = player.GetComponent<PlayerController>().moveSpeed;
-        maxSpeed = player.GetComponent<PlayerController>().maxSpeed;
-        stopDrag = player.GetComponent<PlayerController>().stopDrag;
-        moveDrag = player.GetComponent<PlayerController>().moveDrag;
         slowRadius = player.GetComponent<PlayerController>().slowRadius;
         stopRadius = player.GetComponent<PlayerController>().stopRadius;
-        turnSpeed = player.GetComponent<PlayerController>().turnSpeed;
 
         rb = GetComponent<Rigidbody2D>();
         rb.freezeRotation = true;
@@ -124,11 +119,8 @@ public class FishController : MonoBehaviour, IHasPlayer
             }
             else
             {
-                float speedFactor = (distance / (slowRadius - stopRadius)) - (stopRadius / (slowRadius - stopRadius));
-
-                float speed = speedFactor * moveSpeed;
-
-                targetVelocity = toMouse.normalized * speed;
+                float speedFactor = Mathf.Clamp01((distance - stopRadius) / (slowRadius - stopRadius));
+                targetVelocity = toMouse.normalized * speedFactor * moveSpeed;
                 targetVelocity = Vector2.ClampMagnitude(targetVelocity, maxSpeed);
             }
 
@@ -157,8 +149,8 @@ public class FishController : MonoBehaviour, IHasPlayer
             float speedFactor = 1f;
 
             if (distance < slowRadius)
-                speedFactor = distance / slowRadius;
-
+                speedFactor = Mathf.Min((distance / slowRadius) + 0.5f, 1f);
+            
             Vector2 desiredVelocity = toTarget.normalized * moveSpeed * speedFactor;
             targetVelocity = Vector2.ClampMagnitude(desiredVelocity, maxSpeed);
         }
@@ -169,7 +161,7 @@ public class FishController : MonoBehaviour, IHasPlayer
         rb.linearVelocity = Vector2.Lerp(rb.linearVelocity, targetVelocity, moveDrag * Time.fixedDeltaTime);
 
         if (targetVelocity.magnitude < 0.05f)
-            rb.linearVelocity = Vector2.Lerp(rb.linearVelocity, Vector2.zero, stopDrag * Time.fixedDeltaTime);
+            rb.linearVelocity = Vector2.Lerp(rb.linearVelocity, targetVelocity, stopDrag * Time.fixedDeltaTime);
 
         Vector2 vel = rb.linearVelocity;
 

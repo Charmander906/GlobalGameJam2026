@@ -23,6 +23,9 @@ public class PlayerController : MonoBehaviour
     public float slowRadius = 2.5f;
     public float stopRadius = 0.5f;
     public float turnSpeed = 6f;
+    public float dashSpeed = 35f;
+    public float dashDuration = 0.25f;
+    public float dashCooldown = 1f;
 
     [Header("Camera Settings")]
     public Camera cam;
@@ -33,6 +36,8 @@ public class PlayerController : MonoBehaviour
     private float currentAngle;
     private bool facingRight;
     private float currentTilt;
+    private static bool dashing = false;
+    private static bool hasDash = true;
     //private AudioSource audioSource;
 
     void Start()
@@ -65,12 +70,15 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                float speedFactor = (distance / (slowRadius - stopRadius)) - (stopRadius / (slowRadius - stopRadius));
-
-                float speed = speedFactor * moveSpeed;
-
-                targetVelocity = toMouse.normalized * speed;
-                targetVelocity = Vector2.ClampMagnitude(targetVelocity, maxSpeed);
+                if (dashing) {
+                    targetVelocity = toMouse.normalized * dashSpeed;
+                }
+                else
+                {
+                    float speedFactor = Mathf.Clamp01((distance - stopRadius) / (slowRadius - stopRadius));
+                    targetVelocity = toMouse.normalized * speedFactor * moveSpeed;
+                    targetVelocity = Vector2.ClampMagnitude(targetVelocity, maxSpeed);
+                }
             }
         }
         else
@@ -78,6 +86,14 @@ public class PlayerController : MonoBehaviour
             targetVelocity = Vector2.zero;
             rb.position = control.GetComponent<Rigidbody2D>().position;
         }
+
+        //Dash script
+        if (Mouse.current.leftButton.wasPressedThisFrame && hasDash) {
+            dashing = true;
+            hasDash = false;
+            Invoke("DashingFalse", dashDuration);
+        }
+        //Dash script end
 
         if (Mouse.current.rightButton.wasPressedThisFrame)
         {
@@ -111,7 +127,7 @@ public class PlayerController : MonoBehaviour
         rb.linearVelocity = Vector2.Lerp(rb.linearVelocity, targetVelocity, moveDrag * Time.fixedDeltaTime);
 
         if (targetVelocity.magnitude < 0.05f)
-            rb.linearVelocity = Vector2.Lerp(rb.linearVelocity, Vector2.zero, stopDrag * Time.fixedDeltaTime);
+            rb.linearVelocity = Vector2.Lerp(rb.linearVelocity, targetVelocity, stopDrag * Time.fixedDeltaTime);
 
         Vector2 vel = rb.linearVelocity;
 
@@ -149,7 +165,6 @@ public class PlayerController : MonoBehaviour
     {
         GameObject controlN = null;
 
-        // Get all colliders overlapping the player's BoxCollider2D
         BoxCollider2D box = GetComponent<BoxCollider2D>();
         Collider2D[] results = Physics2D.OverlapBoxAll(
             transform.position,
@@ -175,5 +190,12 @@ public class PlayerController : MonoBehaviour
         }
 
         return controlN;
+    }
+    void DashingFalse(){
+        dashing = false;
+        Invoke("DashCooldown", dashCooldown);
+    }
+    void DashCooldown() {
+        hasDash = true;
     }
 }

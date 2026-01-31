@@ -110,17 +110,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   isControlled: 0
   player: {fileID: 0}
-  moveSpeed: 6
-  maxSpeed: 7
-  stopDrag: 5
-  moveDrag: 8
-  slowRadius: 2.5
-  stopRadius: 0.5
-  turnSpeed: 6
+  moveSpeed: 80
+  maxSpeed: 9.9
+  stopDrag: 6
+  moveDrag: 3
+  slowRadius: 50
+  stopRadius: 0.8
+  turnSpeed: 20
   followTarget: {fileID: 0}
   fishSchool: {fileID: 0}
   followVariance: 0.92
-  sprite: {fileID: 0}
+  sprite: {fileID: 6781936714408768688}
   rotationMultiplier: 1.5
   maxAcceptableDistance: 5
   mainTargetWeight: 0.65

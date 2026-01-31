@@ -15,7 +15,7 @@ public class FishSchoolController : MonoBehaviour, IHasPlayer
     public float waveFrequency = 1f;
 
     [Header("Zigzag Motion")]
-    public float zigzagStrength = 0f;
+    public float zigzagStrength = 1f;
     public float zigzagFrequency = 2f;
 
     [Header("Pulse Motion")]
@@ -38,6 +38,7 @@ public class FishSchoolController : MonoBehaviour, IHasPlayer
 
     private int moveDir = 1;
     private float currentSpeed;
+    private float targetSpeed;
     private float sineTime;
     private float lastTurnTime;
     private Vector3 patternOffset;
@@ -45,11 +46,12 @@ public class FishSchoolController : MonoBehaviour, IHasPlayer
     void Start()
     {
         currentSpeed = baseSpeed;
+        targetSpeed = baseSpeed;
 
         Collider2D thisCollider = GetComponent<Collider2D>();
         if (thisCollider == null)
         {
-            Debug.LogWarning("oops done fuked up");
+            Debug.LogWarning("oops dun fuked up again");
             return;
         }
 
@@ -57,9 +59,7 @@ public class FishSchoolController : MonoBehaviour, IHasPlayer
         {
             Collider2D playerCollider = player.GetComponent<Collider2D>();
             if (playerCollider != null)
-            {
                 Physics2D.IgnoreCollision(playerCollider, thisCollider);
-            }
         }
 
         GameObject[] possessObjects = GameObject.FindGameObjectsWithTag("possess");
@@ -67,9 +67,7 @@ public class FishSchoolController : MonoBehaviour, IHasPlayer
         {
             Collider2D otherCollider = obj.GetComponent<Collider2D>();
             if (otherCollider != null)
-            {
                 Physics2D.IgnoreCollision(thisCollider, otherCollider);
-            }
         }
     }
 
@@ -79,9 +77,7 @@ public class FishSchoolController : MonoBehaviour, IHasPlayer
 
         HandleFollowerSpeed();
 
-        float targetSpeed = Mathf.Clamp(currentSpeed, 0f, maxSpeed);
-
-        Vector3 forwardMove = Vector3.right * moveDir * targetSpeed * Time.deltaTime;
+        Vector3 forwardMove = Vector3.right * moveDir * currentSpeed * Time.deltaTime;
 
         Vector3 newOffset = CalculatePatternOffset(sineTime);
         Vector3 offsetDelta = newOffset - patternOffset;
@@ -92,14 +88,15 @@ public class FishSchoolController : MonoBehaviour, IHasPlayer
 
     void HandleFollowerSpeed()
     {
+        currentSpeed = Mathf.MoveTowards(currentSpeed, targetSpeed, (currentSpeed < targetSpeed ? acceleration : deceleration) * Time.deltaTime);
+
         if (followers.Count == 0)
         {
-            currentSpeed = Mathf.MoveTowards(currentSpeed, baseSpeed, acceleration * Time.deltaTime);
+            targetSpeed = baseSpeed;
             return;
         }
 
         float worstDistance = 0f;
-
         foreach (GameObject f in followers)
         {
             if (f == null) continue;
@@ -108,19 +105,14 @@ public class FishSchoolController : MonoBehaviour, IHasPlayer
         }
 
         if (worstDistance > followStopDistance)
-        {
-            currentSpeed = Mathf.MoveTowards(currentSpeed, 0f, deceleration * Time.deltaTime);
-        }
+            targetSpeed = 0f;
         else if (worstDistance > followSlowDistance)
         {
             float t = Mathf.InverseLerp(followSlowDistance, followStopDistance, worstDistance);
-            float slowedSpeed = Mathf.Lerp(baseSpeed, 0f, t);
-            currentSpeed = Mathf.MoveTowards(currentSpeed, slowedSpeed, deceleration * Time.deltaTime);
+            targetSpeed = Mathf.Lerp(baseSpeed, 0f, t);
         }
         else
-        {
-            currentSpeed = Mathf.MoveTowards(currentSpeed, baseSpeed, acceleration * Time.deltaTime);
-        }
+            targetSpeed = baseSpeed;
     }
 
     Vector3 CalculatePatternOffset(float t)
@@ -129,25 +121,25 @@ public class FishSchoolController : MonoBehaviour, IHasPlayer
 
         if (waveAmplitude > 0f)
         {
-            float wave = Mathf.Sin(t * waveFrequency) * waveAmplitude;
+            float wave = Mathf.Sin(t * waveFrequency * 2f * Mathf.PI) * waveAmplitude;
             offset += Vector3.up * wave;
         }
 
         if (zigzagStrength > 0f)
         {
-            float zigzag = Mathf.Sign(Mathf.Sin(t * zigzagFrequency)) * zigzagStrength;
-            offset += Vector3.up * zigzag;
+            float triangle = 2f * Mathf.Abs((t * zigzagFrequency) % 1f - 0.5f) - 1f;
+            offset += Vector3.up * triangle * zigzagStrength;
         }
 
         if (pulseStrength > 0f)
         {
-            float pulse = Mathf.Pow(Mathf.Sin(t * pulseFrequency), 8f) * pulseStrength;
+            float pulse = Mathf.Pow(Mathf.Sin(t * pulseFrequency * 2f * Mathf.PI), 8f) * pulseStrength;
             offset += Vector3.right * moveDir * pulse;
         }
 
         if (peakBoostStrength > 0f && waveAmplitude > 0f)
         {
-            float wave = Mathf.Sin(t * waveFrequency);
+            float wave = Mathf.Sin(t * waveFrequency * 2f * Mathf.PI);
             float peak = Mathf.Pow(Mathf.Clamp01(wave), peakBoostSharpness);
             offset += Vector3.right * moveDir * peak * peakBoostStrength;
         }
@@ -160,15 +152,12 @@ public class FishSchoolController : MonoBehaviour, IHasPlayer
         if (Time.time - lastTurnTime < turnCooldown) return;
 
         lastTurnTime = Time.time;
-        TurnAround();
-    }
 
-    void TurnAround()
-    {
         moveDir *= -1;
-
         Vector3 scale = transform.localScale;
         scale.x = Mathf.Abs(scale.x) * moveDir;
         transform.localScale = scale;
+
+        targetSpeed = 0f;
     }
 }
