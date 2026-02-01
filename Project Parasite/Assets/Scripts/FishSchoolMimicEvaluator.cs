@@ -21,7 +21,7 @@ public class FishSchoolMimicEvaluator : MonoBehaviour
     [Header("Blackening Influence")]
     [Range(0f,1f)] public float blackeningInfluence = 1f;
 
-    [HideInInspector]
+    //[HideInInspector]
     public float mimicEfficiency = 0f;
     private PlayerController playerController;
 
