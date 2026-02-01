@@ -4,9 +4,7 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     public AudioSource musicSource;
-    public AudioSource musicSource2;
     public AudioSource SFXSource;
-
     public AudioClip music1;
     public AudioClip music2;
     public AudioClip music3;
@@ -14,10 +12,10 @@ public class AudioManager : MonoBehaviour
     public AudioClip music5;
     public AudioClip music6;
     private AudioClip[] musicClips = new AudioClip[6];
-
+    public AudioClip theme;
     private int currentTrack = -1;
-    private bool source1 = false;
     public int desiredTrack;
+    public float mapHeight = 300;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -33,30 +31,20 @@ public class AudioManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(currentTrack != desiredTrack) {
-            if (source1)
-            {
-                musicSource2.clip = musicClips[desiredTrack];
-                currentTrack = desiredTrack;
-            }
-            else {
-                musicSource.clip = musicClips[desiredTrack];
-                currentTrack = desiredTrack;
-            }
-        }
-        if (!musicSource.isPlaying && !musicSource2.isPlaying)
+        desiredTrack = Mathf.FloorToInt(transform.position.y / mapHeight * musicClips.Length);
+        if (transform.position.x < 175 && musicSource.clip != theme)
         {
-            if (source1) {
-                musicSource2.Play();
-                source1 = false;
-                musicSource.clip = musicClips[desiredTrack];
+            musicSource.clip = theme;
+        }
+;
+        if (currentTrack != desiredTrack && transform.position.x > 175) {
+            musicSource.clip = musicClips[desiredTrack];
+            currentTrack = desiredTrack;
             }
-            else
-            {
+        
+        if (!musicSource.isPlaying) {
                 musicSource.Play();
-                source1 = true;
-                musicSource2.clip = musicClips[desiredTrack];
             }
         }
     }
-}
+
