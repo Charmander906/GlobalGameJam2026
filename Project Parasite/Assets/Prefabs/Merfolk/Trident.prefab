@@ -184,8 +184,8 @@ MonoBehaviour:
   animationFPS: 12
   moveSpeed: 40
   maxPredictionTime: 20
-  homingDuration: 0.6
-  maxTurnRate: 90
+  homingDuration: 6
+  maxTurnRate: 180
   followTarget: {fileID: 0}
   positionOffsetRight: {x: 0.9, y: 1.2}
   positionOffsetLeft: {x: -0.91, y: 1.3}

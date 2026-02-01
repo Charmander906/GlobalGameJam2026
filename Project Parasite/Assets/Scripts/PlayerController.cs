@@ -20,9 +20,6 @@ public class PlayerController : MonoBehaviour
     public float slowRadius = 2.5f;
     public float stopRadius = 0.5f;
     public float turnSpeed = 6f;
-    public float dashSpeed = 35f;
-    public float dashDuration = 0.25f;
-    public float dashCooldown = 1f;
     public float possessRadius = 1f;
 
     [Header("Camera Settings")]
@@ -32,16 +29,13 @@ public class PlayerController : MonoBehaviour
     public ParticleSystem possessionParticles;
     public float burstDuration = 0.3f;
     public float hoverDuration = 0.2f;
-    public float homingGravity = 50f; // acceleration toward center
-    public float maxHomingSpeed = 25f; // clamp max speed
+    public float homingGravity = 50f;
+    public float maxHomingSpeed = 25f;
 
     private Rigidbody2D rb;
     private Vector2 targetVelocity;
     private float currentTilt;
-    private bool dashing = false;
-    private bool hasDash = true;
 
-    // Particle animation
     private enum ParticlePhase { None, Burst, Hover, Homing }
     private class PossessionParticle
     {
@@ -66,7 +60,6 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         HandleMovementInput();
-        HandleDashInput();
         HandlePossessInput();
         HandleParticles();
     }
@@ -96,14 +89,9 @@ public class PlayerController : MonoBehaviour
                 targetVelocity = Vector2.zero;
             else
             {
-                if (dashing)
-                    targetVelocity = toMouse.normalized * dashSpeed;
-                else
-                {
-                    float speedFactor = Mathf.Clamp01((distance - stopRadius) / (slowRadius - stopRadius));
-                    targetVelocity = toMouse.normalized * speedFactor * moveSpeed;
-                    targetVelocity = Vector2.ClampMagnitude(targetVelocity, maxSpeed);
-                }
+                float speedFactor = Mathf.Clamp01((distance - stopRadius) / (slowRadius - stopRadius));
+                targetVelocity = toMouse.normalized * speedFactor * moveSpeed;
+                targetVelocity = Vector2.ClampMagnitude(targetVelocity, maxSpeed);
             }
         }
         else
@@ -126,27 +114,6 @@ public class PlayerController : MonoBehaviour
         float targetAngle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         currentTilt = Mathf.LerpAngle(currentTilt, targetAngle, turnSpeed * Time.deltaTime);
         sprite.transform.rotation = Quaternion.Euler(0f, 0f, currentTilt);
-    }
-
-    private void HandleDashInput()
-    {
-        if (Mouse.current.leftButton.wasPressedThisFrame && hasDash)
-        {
-            dashing = true;
-            hasDash = false;
-            Invoke(nameof(StopDash), dashDuration);
-        }
-    }
-
-    private void StopDash()
-    {
-        dashing = false;
-        Invoke(nameof(ResetDash), dashCooldown);
-    }
-
-    private void ResetDash()
-    {
-        hasDash = true;
     }
 
     private void HandlePossessInput()

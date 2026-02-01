@@ -92,7 +92,7 @@ public class MerfolkController : MonoBehaviour, IHasPlayer
 
     void HandleDetection()
     {
-        if (player == null || playerSpotted) return;
+        if (player == null) return;
         if (!sr.isVisible) return;
 
         Vector2 toPlayer = player.transform.position - transform.position;
@@ -127,10 +127,26 @@ public class MerfolkController : MonoBehaviour, IHasPlayer
     {
         if (attackInProgress) return;
 
-        if (playerSpotted)
+        bool shouldChase = playerSpotted || suspicion > 0f;
+
+        if (shouldChase)
         {
             rb.linearDamping = chaseDrag;
-            AggressiveBehavior();
+
+            if (!attackInProgress)
+            {
+                Vector2 toPlayer = (Vector2)player.transform.position - rb.position;
+                float dist = toPlayer.magnitude;
+
+                if (!playerSpotted && suspicion < 1f)
+                {
+                    SwimToward(toPlayer, maxSwimSpeed, swimAcceleration);
+                }
+                else
+                {
+                    AggressiveBehavior();
+                }
+            }
             return;
         }
         else
@@ -152,9 +168,9 @@ public class MerfolkController : MonoBehaviour, IHasPlayer
         }
 
         Vector2 toTarget = swimTarget - rb.position;
-        float dist = toTarget.magnitude;
+        float distToTarget = toTarget.magnitude;
 
-        if (dist < nodeReachDistance)
+        if (distToTarget < nodeReachDistance)
         {
             isIdling = true;
             idleTimer = idlePauseTime;
