@@ -203,12 +203,12 @@ TextureImporter:
       name: Q_Mark_0
       rect:
         serializedVersion: 2
-        x: 7
-        y: 104
-        width: 20
-        height: 24
+        x: 0
+        y: 96
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -225,12 +225,12 @@ TextureImporter:
       name: Q_Mark_1
       rect:
         serializedVersion: 2
-        x: 13
-        y: 98
-        width: 8
-        height: 7
+        x: 32
+        y: 96
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -247,12 +247,12 @@ TextureImporter:
       name: Q_Mark_2
       rect:
         serializedVersion: 2
-        x: 39
-        y: 104
-        width: 20
-        height: 24
+        x: 64
+        y: 96
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -269,12 +269,12 @@ TextureImporter:
       name: Q_Mark_3
       rect:
         serializedVersion: 2
-        x: 45
-        y: 98
-        width: 8
-        height: 7
+        x: 96
+        y: 96
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -291,12 +291,12 @@ TextureImporter:
       name: Q_Mark_4
       rect:
         serializedVersion: 2
-        x: 71
-        y: 104
-        width: 20
-        height: 24
+        x: 0
+        y: 64
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -313,12 +313,12 @@ TextureImporter:
       name: Q_Mark_5
       rect:
         serializedVersion: 2
-        x: 77
-        y: 98
-        width: 8
-        height: 7
+        x: 32
+        y: 64
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -335,12 +335,12 @@ TextureImporter:
       name: Q_Mark_6
       rect:
         serializedVersion: 2
-        x: 103
-        y: 104
-        width: 20
-        height: 24
+        x: 64
+        y: 64
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -357,12 +357,12 @@ TextureImporter:
       name: Q_Mark_7
       rect:
         serializedVersion: 2
-        x: 109
-        y: 98
-        width: 8
-        height: 7
+        x: 96
+        y: 64
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -379,12 +379,12 @@ TextureImporter:
       name: Q_Mark_8
       rect:
         serializedVersion: 2
-        x: 7
-        y: 72
-        width: 20
-        height: 24
+        x: 0
+        y: 32
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -401,12 +401,12 @@ TextureImporter:
       name: Q_Mark_9
       rect:
         serializedVersion: 2
-        x: 13
-        y: 66
-        width: 8
-        height: 7
+        x: 32
+        y: 32
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -423,12 +423,12 @@ TextureImporter:
       name: Q_Mark_10
       rect:
         serializedVersion: 2
-        x: 39
-        y: 72
-        width: 20
-        height: 24
+        x: 64
+        y: 32
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -445,12 +445,12 @@ TextureImporter:
       name: Q_Mark_11
       rect:
         serializedVersion: 2
-        x: 45
-        y: 66
-        width: 8
-        height: 7
+        x: 96
+        y: 32
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -467,12 +467,12 @@ TextureImporter:
       name: Q_Mark_12
       rect:
         serializedVersion: 2
-        x: 71
-        y: 72
-        width: 20
-        height: 24
+        x: 0
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -489,12 +489,12 @@ TextureImporter:
       name: Q_Mark_13
       rect:
         serializedVersion: 2
-        x: 77
-        y: 66
-        width: 8
-        height: 7
+        x: 32
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -511,12 +511,12 @@ TextureImporter:
       name: Q_Mark_14
       rect:
         serializedVersion: 2
-        x: 103
-        y: 72
-        width: 20
-        height: 24
+        x: 64
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -529,341 +529,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: Q_Mark_15
-      rect:
-        serializedVersion: 2
-        x: 109
-        y: 66
-        width: 8
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 26da823535e126200800000000000000
-      internalID: 171733079019793762
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Q_Mark_16
-      rect:
-        serializedVersion: 2
-        x: 7
-        y: 40
-        width: 20
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 082b7ec2516a288d0800000000000000
-      internalID: -2845529404666826112
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Q_Mark_17
-      rect:
-        serializedVersion: 2
-        x: 13
-        y: 34
-        width: 8
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 49a18f655bde570a0800000000000000
-      internalID: -6884335092261971308
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Q_Mark_18
-      rect:
-        serializedVersion: 2
-        x: 39
-        y: 40
-        width: 20
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 33d3415dca2a8f2c0800000000000000
-      internalID: -4397586172934341325
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Q_Mark_19
-      rect:
-        serializedVersion: 2
-        x: 45
-        y: 34
-        width: 8
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 657a642bf3decc7a0800000000000000
-      internalID: -6355444116296915114
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Q_Mark_20
-      rect:
-        serializedVersion: 2
-        x: 71
-        y: 40
-        width: 20
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 66c7854b7b8a3fbc0800000000000000
-      internalID: -3750468557711311770
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Q_Mark_21
-      rect:
-        serializedVersion: 2
-        x: 77
-        y: 34
-        width: 8
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: aee9662e83dcb1d00800000000000000
-      internalID: 944574191064489706
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Q_Mark_22
-      rect:
-        serializedVersion: 2
-        x: 103
-        y: 40
-        width: 20
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 003640a03dc8dd2d0800000000000000
-      internalID: -3252288517857582336
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Q_Mark_23
-      rect:
-        serializedVersion: 2
-        x: 109
-        y: 34
-        width: 8
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0eedf1e4461b35db0800000000000000
-      internalID: -4804301333108629792
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Q_Mark_24
-      rect:
-        serializedVersion: 2
-        x: 7
-        y: 8
-        width: 20
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1c9e64e650b61e700800000000000000
-      internalID: 567852699094542785
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Q_Mark_25
-      rect:
-        serializedVersion: 2
-        x: 13
-        y: 2
-        width: 8
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a885c98d8f32d0dc0800000000000000
-      internalID: -3671238569544099702
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Q_Mark_26
-      rect:
-        serializedVersion: 2
-        x: 39
-        y: 8
-        width: 20
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9ecf4c1bbdb89f250800000000000000
-      internalID: 5978963756007619817
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Q_Mark_27
-      rect:
-        serializedVersion: 2
-        x: 45
-        y: 2
-        width: 8
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 34f4df91368543040800000000000000
-      internalID: 4626419899877379907
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Q_Mark_28
-      rect:
-        serializedVersion: 2
-        x: 71
-        y: 8
-        width: 20
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e65372158bcbb1760800000000000000
-      internalID: 7429739510099293550
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Q_Mark_29
-      rect:
-        serializedVersion: 2
-        x: 77
-        y: 2
-        width: 8
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 81a7dab3f30844d10800000000000000
-      internalID: 2108951534588754456
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 097cb63a074d65849ae5d1088a3cfb00
     internalID: 0
     vertices: []
     indices: 
@@ -871,7 +541,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":4.0,"y":4.0},"gridSpriteSize":{"x":32.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       Q_Mark_0: -2872068963291149990
       Q_Mark_1: 3315862397834005343
@@ -880,22 +552,7 @@ TextureImporter:
       Q_Mark_12: -24008464612433797
       Q_Mark_13: -7807311144843181371
       Q_Mark_14: -5221848436881594671
-      Q_Mark_15: 171733079019793762
-      Q_Mark_16: -2845529404666826112
-      Q_Mark_17: -6884335092261971308
-      Q_Mark_18: -4397586172934341325
-      Q_Mark_19: -6355444116296915114
       Q_Mark_2: 3104130994808498787
-      Q_Mark_20: -3750468557711311770
-      Q_Mark_21: 944574191064489706
-      Q_Mark_22: -3252288517857582336
-      Q_Mark_23: -4804301333108629792
-      Q_Mark_24: 567852699094542785
-      Q_Mark_25: -3671238569544099702
-      Q_Mark_26: 5978963756007619817
-      Q_Mark_27: 4626419899877379907
-      Q_Mark_28: 7429739510099293550
-      Q_Mark_29: 2108951534588754456
       Q_Mark_3: -7275942948056573949
       Q_Mark_4: -566823634063199196
       Q_Mark_5: -1396751424844634862
