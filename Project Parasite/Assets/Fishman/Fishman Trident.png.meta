@@ -115,7 +115,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -129,7 +129,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -153,7 +153,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -194,12 +194,12 @@ TextureImporter:
       name: Fishman Trident_0
       rect:
         serializedVersion: 2
-        x: 24
-        y: 417
-        width: 32
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 412
+        width: 81
+        height: 103
+      alignment: 9
+      pivot: {x: 0.5, y: 0.69}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -216,12 +216,12 @@ TextureImporter:
       name: Fishman Trident_1
       rect:
         serializedVersion: 2
-        x: 102
-        y: 413
-        width: 32
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 81
+        y: 412
+        width: 81
+        height: 103
+      alignment: 9
+      pivot: {x: 0.5, y: 0.69}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -238,12 +238,12 @@ TextureImporter:
       name: Fishman Trident_2
       rect:
         serializedVersion: 2
-        x: 177
-        y: 416
-        width: 37
-        height: 62
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 162
+        y: 412
+        width: 81
+        height: 103
+      alignment: 9
+      pivot: {x: 0.5, y: 0.69}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -260,12 +260,12 @@ TextureImporter:
       name: Fishman Trident_3
       rect:
         serializedVersion: 2
-        x: 258
-        y: 416
-        width: 37
-        height: 62
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 243
+        y: 412
+        width: 81
+        height: 103
+      alignment: 9
+      pivot: {x: 0.5, y: 0.69}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -282,12 +282,12 @@ TextureImporter:
       name: Fishman Trident_4
       rect:
         serializedVersion: 2
-        x: 338
-        y: 418
-        width: 37
-        height: 62
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 324
+        y: 412
+        width: 81
+        height: 103
+      alignment: 9
+      pivot: {x: 0.5, y: 0.69}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -304,12 +304,12 @@ TextureImporter:
       name: Fishman Trident_5
       rect:
         serializedVersion: 2
-        x: 421
-        y: 417
-        width: 37
-        height: 62
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 405
+        y: 412
+        width: 81
+        height: 103
+      alignment: 9
+      pivot: {x: 0.5, y: 0.69}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -326,12 +326,12 @@ TextureImporter:
       name: Fishman Trident_6
       rect:
         serializedVersion: 2
-        x: 16
-        y: 314
-        width: 37
-        height: 62
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 309
+        width: 81
+        height: 103
+      alignment: 9
+      pivot: {x: 0.5, y: 0.69}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -348,12 +348,12 @@ TextureImporter:
       name: Fishman Trident_7
       rect:
         serializedVersion: 2
-        x: 103
-        y: 310
-        width: 32
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 81
+        y: 309
+        width: 81
+        height: 103
+      alignment: 9
+      pivot: {x: 0.5, y: 0.69}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -370,12 +370,12 @@ TextureImporter:
       name: Fishman Trident_8
       rect:
         serializedVersion: 2
-        x: 183
-        y: 310
-        width: 32
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 162
+        y: 309
+        width: 81
+        height: 103
+      alignment: 9
+      pivot: {x: 0.5, y: 0.69}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -392,12 +392,12 @@ TextureImporter:
       name: Fishman Trident_9
       rect:
         serializedVersion: 2
-        x: 258
-        y: 313
-        width: 37
-        height: 62
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 243
+        y: 309
+        width: 81
+        height: 103
+      alignment: 9
+      pivot: {x: 0.5, y: 0.69}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -414,12 +414,12 @@ TextureImporter:
       name: Fishman Trident_10
       rect:
         serializedVersion: 2
-        x: 339
-        y: 313
-        width: 37
-        height: 62
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 324
+        y: 309
+        width: 81
+        height: 103
+      alignment: 9
+      pivot: {x: 0.5, y: 0.69}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -436,12 +436,12 @@ TextureImporter:
       name: Fishman Trident_11
       rect:
         serializedVersion: 2
-        x: 419
-        y: 315
-        width: 37
-        height: 62
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 405
+        y: 309
+        width: 81
+        height: 103
+      alignment: 9
+      pivot: {x: 0.5, y: 0.69}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -458,12 +458,12 @@ TextureImporter:
       name: Fishman Trident_12
       rect:
         serializedVersion: 2
-        x: 16
-        y: 211
-        width: 37
-        height: 62
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 206
+        width: 81
+        height: 103
+      alignment: 9
+      pivot: {x: 0.5, y: 0.69}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -480,12 +480,12 @@ TextureImporter:
       name: Fishman Trident_13
       rect:
         serializedVersion: 2
-        x: 97
-        y: 211
-        width: 37
-        height: 62
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 81
+        y: 206
+        width: 81
+        height: 103
+      alignment: 9
+      pivot: {x: 0.5, y: 0.69}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -502,12 +502,12 @@ TextureImporter:
       name: Fishman Trident_14
       rect:
         serializedVersion: 2
-        x: 186
-        y: 211
-        width: 32
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 162
+        y: 206
+        width: 81
+        height: 103
+      alignment: 9
+      pivot: {x: 0.5, y: 0.69}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -524,12 +524,12 @@ TextureImporter:
       name: Fishman Trident_15
       rect:
         serializedVersion: 2
-        x: 262
-        y: 225
-        width: 44
-        height: 58
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 243
+        y: 206
+        width: 81
+        height: 103
+      alignment: 9
+      pivot: {x: 0.5, y: 0.69}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -546,12 +546,12 @@ TextureImporter:
       name: Fishman Trident_16
       rect:
         serializedVersion: 2
-        x: 329
-        y: 253
-        width: 66
-        height: 25
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 324
+        y: 206
+        width: 81
+        height: 103
+      alignment: 9
+      pivot: {x: 0.5, y: 0.69}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -568,12 +568,12 @@ TextureImporter:
       name: Fishman Trident_17
       rect:
         serializedVersion: 2
-        x: 417
-        y: 248
-        width: 59
-        height: 60
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 405
+        y: 206
+        width: 81
+        height: 103
+      alignment: 9
+      pivot: {x: 0.5, y: 0.69}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -590,12 +590,12 @@ TextureImporter:
       name: Fishman Trident_18
       rect:
         serializedVersion: 2
-        x: 13
-        y: 144
-        width: 56
-        height: 62
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 103
+        width: 81
+        height: 103
+      alignment: 9
+      pivot: {x: 0.5, y: 0.69}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -612,12 +612,12 @@ TextureImporter:
       name: Fishman Trident_19
       rect:
         serializedVersion: 2
-        x: 88
-        y: 143
-        width: 68
-        height: 63
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 81
+        y: 103
+        width: 81
+        height: 103
+      alignment: 9
+      pivot: {x: 0.5, y: 0.69}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -634,12 +634,12 @@ TextureImporter:
       name: Fishman Trident_20
       rect:
         serializedVersion: 2
-        x: 171
-        y: 140
-        width: 61
-        height: 66
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 162
+        y: 103
+        width: 81
+        height: 103
+      alignment: 9
+      pivot: {x: 0.5, y: 0.69}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -656,12 +656,12 @@ TextureImporter:
       name: Fishman Trident_21
       rect:
         serializedVersion: 2
-        x: 249
-        y: 136
-        width: 67
-        height: 69
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 243
+        y: 103
+        width: 81
+        height: 103
+      alignment: 9
+      pivot: {x: 0.5, y: 0.69}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -678,12 +678,12 @@ TextureImporter:
       name: Fishman Trident_22
       rect:
         serializedVersion: 2
-        x: 330
-        y: 137
-        width: 67
-        height: 66
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 324
+        y: 103
+        width: 81
+        height: 103
+      alignment: 9
+      pivot: {x: 0.5, y: 0.69}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -700,12 +700,12 @@ TextureImporter:
       name: Fishman Trident_23
       rect:
         serializedVersion: 2
-        x: 410
-        y: 150
-        width: 61
-        height: 53
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 405
+        y: 103
+        width: 81
+        height: 103
+      alignment: 9
+      pivot: {x: 0.5, y: 0.69}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -723,11 +723,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 64
-        width: 70
-        height: 20
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        y: 0
+        width: 81
+        height: 103
+      alignment: 9
+      pivot: {x: 0.5, y: 0.69}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -744,12 +744,12 @@ TextureImporter:
       name: Fishman Trident_25
       rect:
         serializedVersion: 2
-        x: 80
-        y: 65
-        width: 71
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 81
+        y: 0
+        width: 81
+        height: 103
+      alignment: 9
+      pivot: {x: 0.5, y: 0.69}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -767,11 +767,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 162
-        y: 63
-        width: 70
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        y: 0
+        width: 81
+        height: 103
+      alignment: 9
+      pivot: {x: 0.5, y: 0.69}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -788,7 +788,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: f9cf8809986043e40b0312ed3256930c
     internalID: 0
     vertices: []
     indices: 
@@ -796,7 +796,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":6.0,"y":5.0},"gridSpriteSize":{"x":81.0,"y":103.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.6899999976158142},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       Fishman Trident_0: 878491369775145097
       Fishman Trident_1: 5087642048477343279
