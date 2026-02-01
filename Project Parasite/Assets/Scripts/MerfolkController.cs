@@ -25,9 +25,14 @@ public class MerfolkController : MonoBehaviour, IHasPlayer
     [Header("Swimming Movement")]
     public float swimAcceleration = 6f;
     public float maxSwimSpeed = 3f;
-    public float chaseSpeedMultiplier = 2f;
     public float nodeReachDistance = 0.3f;
     public float idlePauseTime = 1.2f;
+
+    [Header("Chase Movement")]
+    public float chaseSpeed = 25f;
+    public float chaseAcceleration = 40f;
+    public float chaseDrag = 0.5f;
+    public float normalDrag = 1.5f;
 
     [Header("Roam Node")]
     public Transform roamNode;
@@ -64,7 +69,7 @@ public class MerfolkController : MonoBehaviour, IHasPlayer
     {
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = 0f;
-        rb.linearDamping = 1.5f;
+        rb.linearDamping = normalDrag;
 
         spriteTransform = spriteObject;
         sr = spriteObject.GetComponent<SpriteRenderer>();
@@ -124,8 +129,13 @@ public class MerfolkController : MonoBehaviour, IHasPlayer
 
         if (playerSpotted)
         {
+            rb.linearDamping = chaseDrag;
             AggressiveBehavior();
             return;
+        }
+        else
+        {
+            rb.linearDamping = normalDrag;
         }
 
         if (isIdling)
@@ -151,7 +161,7 @@ public class MerfolkController : MonoBehaviour, IHasPlayer
             return;
         }
 
-        if (!playerSpotted) SwimToward(toTarget, maxSwimSpeed);
+        SwimToward(toTarget, maxSwimSpeed, swimAcceleration);
     }
 
     void AggressiveBehavior()
@@ -163,30 +173,32 @@ public class MerfolkController : MonoBehaviour, IHasPlayer
 
         if (!attackInProgress)
         {
-            bool shouldAttack = dist <= attackDistance;
-            if (shouldAttack)
+            if (dist <= attackDistance)
             {
                 rb.linearVelocity = Vector2.zero;
                 TriggerAttack();
             }
             else
             {
-                SwimToward(toPlayer, maxSwimSpeed * chaseSpeedMultiplier);
+                SwimToward(toPlayer, chaseSpeed, chaseAcceleration);
                 isAttacking = false;
             }
         }
     }
 
-    void SwimToward(Vector2 direction, float speed)
+    void SwimToward(Vector2 direction, float speed, float acceleration)
     {
         Vector2 dir = direction.normalized;
+
         swayTimer += Time.fixedDeltaTime * swayFrequency;
         Vector2 perpendicular = new Vector2(-dir.y, dir.x);
-        dir += perpendicular * Mathf.Sin(swayTimer) * swayAmplitude * 0.1f;
+
+        float swayStrength = Mathf.Clamp01(3f / speed); // less wobble at high speed
+        dir += perpendicular * Mathf.Sin(swayTimer) * swayAmplitude * 0.1f * swayStrength;
         dir.Normalize();
 
         Vector2 desiredVelocity = dir * speed;
-        rb.linearVelocity = Vector2.MoveTowards(rb.linearVelocity, desiredVelocity, swimAcceleration * Time.fixedDeltaTime);
+        rb.linearVelocity = Vector2.MoveTowards(rb.linearVelocity, desiredVelocity, acceleration * Time.fixedDeltaTime);
     }
 
     void PickNewSwimTarget()
@@ -259,7 +271,6 @@ public class MerfolkController : MonoBehaviour, IHasPlayer
     void FacePlayerAtAttackStart()
     {
         if (player == null) return;
-
         Vector2 toPlayer = player.transform.position - transform.position;
         sr.flipX = toPlayer.x < 0;
     }
@@ -283,41 +294,13 @@ public class MerfolkController : MonoBehaviour, IHasPlayer
             tridentSR.flipX = sr.flipX;
 
         trident.ForceStartAnimation();
-
-        Collider2D tridentCol = trident.GetComponent<Collider2D>();
-        Collider2D merfolkCol = GetComponent<Collider2D>();
-
-        if (tridentCol != null)
-        {
-            if (merfolkCol != null)
-                Physics2D.IgnoreCollision(tridentCol, merfolkCol);
-
-            foreach (GameObject obj in GameObject.FindGameObjectsWithTag("intangible"))
-            {
-                if (obj == tridentObj) continue;
-                Collider2D otherCol = obj.GetComponent<Collider2D>();
-                if (otherCol != null)
-                    Physics2D.IgnoreCollision(tridentCol, otherCol);
-            }
-
-            foreach (GameObject obj in GameObject.FindGameObjectsWithTag("possess"))
-            {
-                Collider2D otherCol = obj.GetComponent<Collider2D>();
-                if (otherCol != null)
-                    Physics2D.IgnoreCollision(tridentCol, otherCol);
-            }
-
-            Collider2D playerCol = player.GetComponent<Collider2D>();
-            if (playerCol != null)
-                Physics2D.IgnoreCollision(tridentCol, playerCol);
-        }
     }
 
     void UpdateSpriteRotation()
     {
         if (attackInProgress)
         {
-            spriteTransform.rotation = Quaternion.Lerp(spriteTransform.rotation, Quaternion.Euler(0f, 0f, 0f), 5f * Time.deltaTime);
+            spriteTransform.rotation = Quaternion.Lerp(spriteTransform.rotation, Quaternion.identity, 5f * Time.deltaTime);
             return;
         }
 
@@ -345,21 +328,6 @@ public class MerfolkController : MonoBehaviour, IHasPlayer
             Collider2D playerCollider = player.GetComponent<Collider2D>();
             if (playerCollider != null)
                 Physics2D.IgnoreCollision(playerCollider, thisCollider);
-        }
-
-        foreach (GameObject obj in GameObject.FindGameObjectsWithTag("possess"))
-        {
-            Collider2D otherCollider = obj.GetComponent<Collider2D>();
-            if (otherCollider != null)
-                Physics2D.IgnoreCollision(thisCollider, otherCollider);
-        }
-
-        foreach (GameObject obj in GameObject.FindGameObjectsWithTag("intangible"))
-        {
-            if (obj == gameObject) continue;
-            Collider2D otherCollider = obj.GetComponent<Collider2D>();
-            if (otherCollider != null)
-                Physics2D.IgnoreCollision(thisCollider, otherCollider);
         }
     }
 }

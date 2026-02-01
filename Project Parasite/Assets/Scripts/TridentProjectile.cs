@@ -15,8 +15,9 @@ public class TridentProjectile : MonoBehaviour
     public float rotationSpeed = 720f; // degrees per second
 
     [Header("Follow Target")]
-    public Transform followTarget;          
-    public Vector2 positionOffset = Vector2.zero;
+    public Transform followTarget;
+    public Vector2 positionOffsetRight = Vector2.zero;
+    public Vector2 positionOffsetLeft = Vector2.zero;
 
     private SpriteRenderer sr;
     private int animIndex = 0;
@@ -104,13 +105,13 @@ public class TridentProjectile : MonoBehaviour
     {
         if (followTarget == null) return;
 
-        Vector3 offset = positionOffset;
+        Vector3 offset = positionOffsetRight;
 
         // Flip X offset if merfolk is flipped
         SpriteRenderer targetSR = followTarget.GetComponent<SpriteRenderer>();
         if (targetSR != null && targetSR.flipX)
         {
-            offset.x = -offset.x;
+            offset = positionOffsetLeft;
             sr.flipX = true;
         }
         else if (targetSR != null)
