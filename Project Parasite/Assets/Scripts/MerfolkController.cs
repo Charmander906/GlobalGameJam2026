@@ -52,8 +52,8 @@ public class MerfolkController : MonoBehaviour, IHasPlayer
     public float attackDistance = 2f;
     public float suspicionBuildRate = 0.5f;
     public float suspicionDecayRate = 0.2f;
-    private float suspicion = 0f;
-    private bool playerSpotted = false;
+    public float suspicion = 0f;
+    public bool playerSpotted = false;
 
     [Header("Trident")]
     public GameObject tridentPrefab;
