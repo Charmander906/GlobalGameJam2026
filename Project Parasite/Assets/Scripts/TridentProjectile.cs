@@ -66,13 +66,9 @@ public class TridentProjectile : MonoBehaviour
         HandleAnimation();
 
         if (!animationComplete)
-        {
             AlignWithMerfolk();
-        }
         else if (!moving)
-        {
             Launch();
-        }
     }
 
     void FixedUpdate()
@@ -199,8 +195,11 @@ public class TridentProjectile : MonoBehaviour
         transform.SetParent(target);
 
         Vector3 localPos = transform.localPosition;
-        localPos.z = 0.1f;
+        localPos.z = 0.01f;
         transform.localPosition = localPos;
+
+        if (target.gameObject == player)
+            TriggerPlayerDeath();
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -226,16 +225,14 @@ public class TridentProjectile : MonoBehaviour
         {
             Collider2D targetCollider = GetSmallestCollider(fish.gameObject);
             if (targetCollider != null)
-            {
                 StickIntoTarget(targetCollider.transform);
-            }
             else
-            {
                 StickIntoTarget(fish.transform);
-            }
+
             return;
         }
     }
+
     Collider2D GetSmallestCollider(GameObject obj)
     {
         BoxCollider2D[] colliders = obj.GetComponents<BoxCollider2D>();
@@ -270,5 +267,20 @@ public class TridentProjectile : MonoBehaviour
 
         if (animationFrames.Count > 0)
             sr.sprite = animationFrames[0];
+    }
+
+    void TriggerPlayerDeath()
+    {
+        PlayerController pc = player.GetComponent<PlayerController>();
+        if (pc != null)
+        {
+            pc.enabled = false;
+            pc.rb.linearVelocity = Vector2.zero;
+        }
+
+        UnityEngine.Cursor.lockState = CursorLockMode.Locked;
+        UnityEngine.Cursor.visible = false;
+
+        GameOverManager.instance.TriggerGameOver();
     }
 }

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections;
 using System.Collections.Generic;
 
 public class PlayerController : MonoBehaviour
@@ -32,7 +33,11 @@ public class PlayerController : MonoBehaviour
     public float homingGravity = 50f;
     public float maxHomingSpeed = 25f;
 
-    private Rigidbody2D rb;
+    [Header("End Tile Fade")]
+    public float fadeDuration = 2f;
+
+    [HideInInspector]
+    public Rigidbody2D rb;
     private Vector2 targetVelocity;
     private float currentTilt;
 
@@ -45,6 +50,9 @@ public class PlayerController : MonoBehaviour
         public ParticlePhase phase;
     }
     private List<PossessionParticle> activeParticles = new List<PossessionParticle>();
+
+    private bool isFadingToWhite = false;
+    private float fadeAlpha = 0f;
 
     void Start()
     {
@@ -59,19 +67,25 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        HandleMovementInput();
-        HandlePossessInput();
-        HandleParticles();
+        if (!isFadingToWhite)
+        {
+            HandleMovementInput();
+            HandlePossessInput();
+            HandleParticles();
+        }
     }
 
     void FixedUpdate()
     {
-        rb.linearVelocity = Vector2.Lerp(rb.linearVelocity, targetVelocity, moveDrag * Time.fixedDeltaTime);
+        if (!isFadingToWhite)
+        {
+            rb.linearVelocity = Vector2.Lerp(rb.linearVelocity, targetVelocity, moveDrag * Time.fixedDeltaTime);
 
-        if (targetVelocity.magnitude < 0.05f)
-            rb.linearVelocity = Vector2.Lerp(rb.linearVelocity, targetVelocity, stopDrag * Time.fixedDeltaTime);
+            if (targetVelocity.magnitude < 0.05f)
+                rb.linearVelocity = Vector2.Lerp(rb.linearVelocity, targetVelocity, stopDrag * Time.fixedDeltaTime);
 
-        RotateSpriteTowardsMouse();
+            RotateSpriteTowardsMouse();
+        }
     }
 
     private void HandleMovementInput()
@@ -118,7 +132,8 @@ public class PlayerController : MonoBehaviour
 
     private void HandlePossessInput()
     {
-        if (isSwimming && control != null && control.GetComponent<FishController>().blackProgress >= 1.0f) possessionParticles.Emit(50);
+        if (isSwimming && control != null && control.GetComponent<FishController>().blackProgress >= 1.0f)
+            possessionParticles.Emit(50);
 
         if (!Mouse.current.rightButton.wasPressedThisFrame) return;
 
@@ -139,7 +154,7 @@ public class PlayerController : MonoBehaviour
                     emission.enabled = false;
 
                     if (possessionParticles.particleCount == 0)
-                    possessionParticles.Emit(50);
+                        possessionParticles.Emit(50);
 
                     ParticleSystem.Particle[] particles = new ParticleSystem.Particle[possessionParticles.main.maxParticles];
                     int count = possessionParticles.GetParticles(particles);
@@ -267,5 +282,44 @@ public class PlayerController : MonoBehaviour
         }
 
         return closest;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("EndTile") && !isFadingToWhite)
+        {
+            StartCoroutine(FadeToWhiteAndStop());
+        }
+    }
+
+    private IEnumerator FadeToWhiteAndStop()
+    {
+        isFadingToWhite = true;
+        fadeAlpha = 0f;
+        float timer = 0f;
+
+        targetVelocity = Vector2.zero;
+        rb.linearVelocity = Vector2.zero;
+
+        while (timer < fadeDuration)
+        {
+            timer += Time.deltaTime;
+            fadeAlpha = Mathf.Clamp01(timer / fadeDuration);
+            yield return null;
+        }
+
+        fadeAlpha = 1f;
+
+        Time.timeScale = 0f;
+    }
+
+    void OnGUI()
+    {
+        if (!isFadingToWhite) return;
+
+        Color prevColor = GUI.color;
+        GUI.color = new Color(1f, 1f, 1f, fadeAlpha);
+        GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), Texture2D.whiteTexture);
+        GUI.color = prevColor;
     }
 }
