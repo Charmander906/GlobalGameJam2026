@@ -537,6 +537,10 @@ PrefabInstance:
       propertyPath: fishSchool
       value: 
       objectReference: {fileID: 4730943012312489699}
+    - target: {fileID: 6636527720432188684, guid: d953480ff7da2f0498804ec92bb92c32, type: 3}
+      propertyPath: followTarget
+      value: 
+      objectReference: {fileID: 6771401882154275121}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -603,6 +607,10 @@ PrefabInstance:
       propertyPath: fishSchool
       value: 
       objectReference: {fileID: 4730943012312489699}
+    - target: {fileID: 6636527720432188684, guid: d953480ff7da2f0498804ec92bb92c32, type: 3}
+      propertyPath: followTarget
+      value: 
+      objectReference: {fileID: 4467130241140610743}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1007,6 +1015,10 @@ PrefabInstance:
       propertyPath: fishSchool
       value: 
       objectReference: {fileID: 4730943012312489699}
+    - target: {fileID: 6636527720432188684, guid: d953480ff7da2f0498804ec92bb92c32, type: 3}
+      propertyPath: followTarget
+      value: 
+      objectReference: {fileID: 5845978550408251656}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

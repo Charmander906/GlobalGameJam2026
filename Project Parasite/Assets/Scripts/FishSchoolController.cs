@@ -55,6 +55,8 @@ public class FishSchoolController : MonoBehaviour, IHasPlayer
             return;
         }
 
+        moveDir = Random.value < 0.5f ? -1 : 1;
+
         if (player != null)
         {
             Collider2D playerCollider = player.GetComponent<Collider2D>();
