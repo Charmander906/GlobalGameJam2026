@@ -115,7 +115,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -129,7 +129,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -153,7 +153,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -194,12 +194,12 @@ TextureImporter:
       name: Fishman Throw_0
       rect:
         serializedVersion: 2
-        x: 29
-        y: 385
-        width: 45
-        height: 85
+        x: 0
+        y: 384
+        width: 103
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -216,12 +216,12 @@ TextureImporter:
       name: Fishman Throw_1
       rect:
         serializedVersion: 2
-        x: 133
-        y: 385
-        width: 43
-        height: 84
+        x: 103
+        y: 384
+        width: 103
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -238,12 +238,12 @@ TextureImporter:
       name: Fishman Throw_2
       rect:
         serializedVersion: 2
-        x: 218
-        y: 386
-        width: 59
-        height: 84
+        x: 206
+        y: 384
+        width: 103
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -260,12 +260,12 @@ TextureImporter:
       name: Fishman Throw_3
       rect:
         serializedVersion: 2
-        x: 321
-        y: 386
-        width: 59
-        height: 84
+        x: 309
+        y: 384
+        width: 103
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -282,12 +282,12 @@ TextureImporter:
       name: Fishman Throw_4
       rect:
         serializedVersion: 2
-        x: 417
-        y: 389
-        width: 66
-        height: 83
+        x: 412
+        y: 384
+        width: 103
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -304,12 +304,12 @@ TextureImporter:
       name: Fishman Throw_5
       rect:
         serializedVersion: 2
-        x: 518
-        y: 387
-        width: 68
-        height: 84
+        x: 515
+        y: 384
+        width: 103
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -326,12 +326,12 @@ TextureImporter:
       name: Fishman Throw_6
       rect:
         serializedVersion: 2
-        x: 3
-        y: 291
-        width: 68
-        height: 84
+        x: 0
+        y: 288
+        width: 103
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -348,12 +348,12 @@ TextureImporter:
       name: Fishman Throw_7
       rect:
         serializedVersion: 2
-        x: 115
-        y: 290
-        width: 62
-        height: 84
+        x: 103
+        y: 288
+        width: 103
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -370,12 +370,12 @@ TextureImporter:
       name: Fishman Throw_8
       rect:
         serializedVersion: 2
-        x: 236
-        y: 289
-        width: 43
-        height: 84
+        x: 206
+        y: 288
+        width: 103
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -392,12 +392,12 @@ TextureImporter:
       name: Fishman Throw_9
       rect:
         serializedVersion: 2
-        x: 343
-        y: 290
-        width: 37
-        height: 84
+        x: 309
+        y: 288
+        width: 103
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -414,12 +414,12 @@ TextureImporter:
       name: Fishman Throw_10
       rect:
         serializedVersion: 2
-        x: 446
-        y: 290
-        width: 37
-        height: 84
+        x: 412
+        y: 288
+        width: 103
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -436,12 +436,12 @@ TextureImporter:
       name: Fishman Throw_11
       rect:
         serializedVersion: 2
-        x: 550
-        y: 292
-        width: 40
-        height: 84
+        x: 515
+        y: 288
+        width: 103
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -458,12 +458,12 @@ TextureImporter:
       name: Fishman Throw_12
       rect:
         serializedVersion: 2
-        x: 35
-        y: 193
-        width: 41
-        height: 86
+        x: 0
+        y: 192
+        width: 103
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -480,12 +480,12 @@ TextureImporter:
       name: Fishman Throw_13
       rect:
         serializedVersion: 2
-        x: 138
-        y: 193
-        width: 41
-        height: 86
+        x: 103
+        y: 192
+        width: 103
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -502,12 +502,12 @@ TextureImporter:
       name: Fishman Throw_14
       rect:
         serializedVersion: 2
-        x: 235
-        y: 193
-        width: 44
-        height: 85
+        x: 206
+        y: 192
+        width: 103
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -524,12 +524,12 @@ TextureImporter:
       name: Fishman Throw_15
       rect:
         serializedVersion: 2
-        x: 339
-        y: 193
-        width: 43
-        height: 84
+        x: 309
+        y: 192
+        width: 103
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -546,19 +546,19 @@ TextureImporter:
       name: Fishman Throw_16
       rect:
         serializedVersion: 2
-        x: 424
-        y: 194
-        width: 68
-        height: 84
+        x: 412
+        y: 192
+        width: 103
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: d499f5e7ba773cd80800000000000000
+      spriteID: ae75971faa9998047805355e81d71b2f
       internalID: -8231604115459827379
       vertices: []
       indices: 
@@ -568,19 +568,19 @@ TextureImporter:
       name: Fishman Throw_17
       rect:
         serializedVersion: 2
-        x: 527
-        y: 194
-        width: 68
-        height: 84
+        x: 515
+        y: 192
+        width: 103
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 737e845ee0c09b460800000000000000
+      spriteID: 07bcbf513302eaa43947f3d742ce2fef
       internalID: 7257845532600100663
       vertices: []
       indices: 
@@ -590,19 +590,19 @@ TextureImporter:
       name: Fishman Throw_18
       rect:
         serializedVersion: 2
-        x: 5
-        y: 101
-        width: 78
-        height: 83
+        x: 0
+        y: 96
+        width: 103
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 4644f03ba5b3dff00800000000000000
+      spriteID: 55b434d9c8eded44abc72a2add79b9c6
       internalID: 1152142340413932644
       vertices: []
       indices: 
@@ -612,19 +612,19 @@ TextureImporter:
       name: Fishman Throw_19
       rect:
         serializedVersion: 2
-        x: 106
-        y: 99
-        width: 80
-        height: 84
+        x: 103
+        y: 96
+        width: 103
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 62be5f0ff6e2633f0800000000000000
+      spriteID: 080755d4f09594041bdf2ca0490df9c9
       internalID: -921498015431791834
       vertices: []
       indices: 
@@ -634,19 +634,19 @@ TextureImporter:
       name: Fishman Throw_20
       rect:
         serializedVersion: 2
-        x: 209
-        y: 99
-        width: 80
-        height: 84
+        x: 206
+        y: 96
+        width: 103
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 2e7f290c951da23e0800000000000000
+      spriteID: 5fb53dbf846cee445a5bf00140fb74ab
       internalID: -2077618094664910878
       vertices: []
       indices: 
@@ -656,19 +656,19 @@ TextureImporter:
       name: Fishman Throw_21
       rect:
         serializedVersion: 2
-        x: 321
-        y: 98
-        width: 71
-        height: 84
+        x: 309
+        y: 96
+        width: 103
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: aab5569b870f85d10800000000000000
+      spriteID: ebe3d65f32af4744cbc20381e8d40b2c
       internalID: 2114704426347617194
       vertices: []
       indices: 
@@ -678,19 +678,19 @@ TextureImporter:
       name: Fishman Throw_22
       rect:
         serializedVersion: 2
-        x: 442
-        y: 97
-        width: 53
-        height: 84
+        x: 412
+        y: 96
+        width: 103
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: ff001687cc8f8a610800000000000000
+      spriteID: ed78a830d72ffe34ea6a320b24617867
       internalID: 1632828421998444799
       vertices: []
       indices: 
@@ -700,19 +700,19 @@ TextureImporter:
       name: Fishman Throw_23
       rect:
         serializedVersion: 2
-        x: 549
-        y: 98
-        width: 48
-        height: 84
+        x: 515
+        y: 96
+        width: 103
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: b052df6a5a1462040800000000000000
+      spriteID: 69b69a71a220f344cb4ced45403574ea
       internalID: 4622454247269410059
       vertices: []
       indices: 
@@ -722,19 +722,19 @@ TextureImporter:
       name: Fishman Throw_24
       rect:
         serializedVersion: 2
-        x: 34
-        y: 2
-        width: 48
-        height: 84
+        x: 0
+        y: 0
+        width: 103
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: f621dc14fe3c28d90800000000000000
+      spriteID: 158181075b83b51498cc70f6b07883c0
       internalID: -7096894630413921681
       vertices: []
       indices: 
@@ -744,19 +744,19 @@ TextureImporter:
       name: Fishman Throw_25
       rect:
         serializedVersion: 2
-        x: 138
-        y: 4
-        width: 42
-        height: 84
+        x: 103
+        y: 0
+        width: 103
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: ba5313e88f855d2e0800000000000000
+      spriteID: 9b9e9b67ea9f79d4cba0a63f8c447120
       internalID: -2101675826537744981
       vertices: []
       indices: 
@@ -766,19 +766,19 @@ TextureImporter:
       name: Fishman Throw_26
       rect:
         serializedVersion: 2
-        x: 241
-        y: 1
-        width: 41
-        height: 86
+        x: 206
+        y: 0
+        width: 103
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: f0e00a7de9379d650800000000000000
+      spriteID: 3728aed7d8244174881f0c05be8ab26c
       internalID: 6258160283267632655
       vertices: []
       indices: 
@@ -788,7 +788,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 72a9bfb940715fa49b5d6df8c6987ce4
     internalID: 0
     vertices: []
     indices: 
@@ -796,7 +796,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":6.0,"y":5.0},"gridSpriteSize":{"x":103.0,"y":96.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       Fishman Throw_0: 1021045492210300911
       Fishman Throw_1: -8182820107718953805

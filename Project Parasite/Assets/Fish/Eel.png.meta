@@ -1,46 +1,55 @@
 fileFormatVersion: 2
-guid: bca3ada87ef5a3844a162332684778c3
+guid: d5d55aa22100e8c458d9d10a3cd382c5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2262039822481846913
-    second: Fishman Idle_0
+      213: -7524272550803999718
+    second: EEl_0
   - first:
-      213: 4732512308441444746
-    second: Fishman Idle_1
+      213: 2759801890445117022
+    second: EEl_1
   - first:
-      213: 1366206082830286173
-    second: Fishman Idle_2
+      213: 9021166867750436914
+    second: EEl_2
   - first:
-      213: 8437066339508673918
-    second: Fishman Idle_3
+      213: -7946182854089607507
+    second: EEl_3
   - first:
-      213: -852137507591968125
-    second: Fishman Idle_4
+      213: 7392511301214076344
+    second: EEl_4
   - first:
-      213: -9002451169394643465
-    second: Fishman Idle_5
+      213: 7707061642966042830
+    second: EEl_5
   - first:
-      213: -3550112861826586178
-    second: Fishman Idle_6
+      213: 8946278171093055474
+    second: EEl_6
   - first:
-      213: 491082988778746748
-    second: Fishman Idle_7
+      213: 8839675663511162788
+    second: EEl_7
   - first:
-      213: 2294861235406377947
-    second: Fishman Idle_8
+      213: 1668424543267910125
+    second: EEl_8
   - first:
-      213: -5159280102761627342
-    second: Fishman Idle_9
+      213: -4658702788494148225
+    second: EEl_9
   - first:
-      213: -3236266411653547359
-    second: Fishman Idle_10
+      213: 7527120436855631729
+    second: EEl_10
   - first:
-      213: -898002798159758246
-    second: Fishman Idle_11
+      213: -2949673694375146467
+    second: EEl_11
   - first:
-      213: -3777000410066406281
-    second: Fishman Idle_12
+      213: -7501796519092288757
+    second: EEl_12
+  - first:
+      213: -270699444650953033
+    second: EEl_13
+  - first:
+      213: -2633741041184886696
+    second: EEl_14
+  - first:
+      213: 996925358044005211
+    second: EEl_15
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -149,287 +158,353 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Fishman Idle_0
+      name: Eel_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 288
-        width: 103
-        height: 96
+        y: 108
+        width: 64
+        height: 36
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 18271d6db31646f10800000000000000
-      internalID: 2262039822481846913
+      spriteID: 585de4597a0b1da42b78ae96c5e16dcc
+      internalID: -2035059408
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fishman Idle_1
+      name: Eel_1
       rect:
         serializedVersion: 2
-        x: 103
-        y: 288
-        width: 103
-        height: 96
+        x: 64
+        y: 108
+        width: 64
+        height: 36
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: a81f0dfded24da140800000000000000
-      internalID: 4732512308441444746
+      spriteID: 6a679e8a58cf78649854b09db1b2c18d
+      internalID: 2005985717
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fishman Idle_2
+      name: Eel_2
       rect:
         serializedVersion: 2
-        x: 206
-        y: 288
-        width: 103
-        height: 96
+        x: 128
+        y: 108
+        width: 64
+        height: 36
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: d5db311a13db5f210800000000000000
-      internalID: 1366206082830286173
+      spriteID: 261c5d1417952e14ea2bd3a893d39ecb
+      internalID: -479350764
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fishman Idle_3
+      name: Eel_3
       rect:
         serializedVersion: 2
-        x: 309
-        y: 288
-        width: 103
-        height: 96
+        x: 192
+        y: 108
+        width: 64
+        height: 36
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: e7dd1d0622b761570800000000000000
-      internalID: 8437066339508673918
+      spriteID: c3e4604255d9d65418e84b670cc20ea1
+      internalID: -556061068
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fishman Idle_4
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 192
-        width: 103
-        height: 96
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 38aa130a3799c24f0800000000000000
-      internalID: -852137507591968125
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Fishman Idle_5
-      rect:
-        serializedVersion: 2
-        x: 103
-        y: 192
-        width: 103
-        height: 96
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7fdae64cb5ed01380800000000000000
-      internalID: -9002451169394643465
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Fishman Idle_6
-      rect:
-        serializedVersion: 2
-        x: 206
-        y: 192
-        width: 103
-        height: 96
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: eb9e74659277bbec0800000000000000
-      internalID: -3550112861826586178
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Fishman Idle_7
-      rect:
-        serializedVersion: 2
-        x: 309
-        y: 192
-        width: 103
-        height: 96
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c73f46d506da0d600800000000000000
-      internalID: 491082988778746748
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Fishman Idle_8
+      name: Eel_4
       rect:
         serializedVersion: 2
         x: 0
-        y: 96
-        width: 103
-        height: 96
+        y: 72
+        width: 64
+        height: 36
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: bd31639822cf8df10800000000000000
-      internalID: 2294861235406377947
+      spriteID: 2f176ad47e856f849b36a31cf187bb65
+      internalID: 124459823
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fishman Idle_9
+      name: Eel_5
       rect:
         serializedVersion: 2
-        x: 103
-        y: 96
-        width: 103
-        height: 96
+        x: 64
+        y: 72
+        width: 64
+        height: 36
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 2310722e41e8668b0800000000000000
-      internalID: -5159280102761627342
+      spriteID: 74b5ee0a8b9a0434ba92be3059093f90
+      internalID: 917855465
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fishman Idle_10
+      name: Eel_6
       rect:
         serializedVersion: 2
-        x: 206
-        y: 96
-        width: 103
-        height: 96
+        x: 128
+        y: 72
+        width: 64
+        height: 36
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 1aabcd658d87613d0800000000000000
-      internalID: -3236266411653547359
+      spriteID: 8efc5ef1f58b81e41bdb358a9b7b365d
+      internalID: -67292053
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fishman Idle_11
+      name: Eel_7
       rect:
         serializedVersion: 2
-        x: 309
-        y: 96
-        width: 103
-        height: 96
+        x: 192
+        y: 72
+        width: 64
+        height: 36
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: a5c71608637a983f0800000000000000
-      internalID: -898002798159758246
+      spriteID: 28b45375a924fd84992f5ebbf3fe67fb
+      internalID: 1469063802
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fishman Idle_12
+      name: Eel_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 36
+        width: 64
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a73cc5767cf58b1428f95731a9c1eee7
+      internalID: -1100705843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eel_9
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 36
+        width: 64
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 638c368607bd43a4880a9c3883df8c8d
+      internalID: -1840315938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eel_10
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 36
+        width: 64
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 176306fd6a63b1f49b7cabdfb45fe600
+      internalID: -1586988571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eel_11
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 36
+        width: 64
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 402a0fdb90aa1b942a72f8e44ebbd42d
+      internalID: 1206365595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eel_12
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 103
-        height: 96
+        width: 64
+        height: 36
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 774bc717326659bc0800000000000000
-      internalID: -3777000410066406281
+      spriteID: 7892398715c864646a89b3c9ffc17f23
+      internalID: -1434972117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eel_13
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77f214068b2130849addc425cead7064
+      internalID: 834351434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eel_14
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15c3dba546cf5754ba6fce08798a30ce
+      internalID: -108644959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eel_15
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56ea2b92c6f92f44694a618171f0b02d
+      internalID: -301485596
       vertices: []
       indices: 
       edges: []
@@ -438,7 +513,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: fd0fbeb3c775e7f4c95c8755dc6dbd9b
+    spriteID: e9b0fb9032f2d8e48abd15411571bf80
     internalID: 0
     vertices: []
     indices: 
@@ -448,21 +523,24 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":4.0,"y":4.0},"gridSpriteSize":{"x":103.0,"y":96.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":4.0,"y":4.0},"gridSpriteSize":{"x":64.0,"y":36.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Fishman Idle_0: 2262039822481846913
-      Fishman Idle_1: 4732512308441444746
-      Fishman Idle_10: -3236266411653547359
-      Fishman Idle_11: -898002798159758246
-      Fishman Idle_12: -3777000410066406281
-      Fishman Idle_2: 1366206082830286173
-      Fishman Idle_3: 8437066339508673918
-      Fishman Idle_4: -852137507591968125
-      Fishman Idle_5: -9002451169394643465
-      Fishman Idle_6: -3550112861826586178
-      Fishman Idle_7: 491082988778746748
-      Fishman Idle_8: 2294861235406377947
-      Fishman Idle_9: -5159280102761627342
+      Eel_0: -2035059408
+      Eel_1: 2005985717
+      Eel_10: -1586988571
+      Eel_11: 1206365595
+      Eel_12: -1434972117
+      Eel_13: 834351434
+      Eel_14: -108644959
+      Eel_15: -301485596
+      Eel_2: -479350764
+      Eel_3: -556061068
+      Eel_4: 124459823
+      Eel_5: 917855465
+      Eel_6: -67292053
+      Eel_7: 1469063802
+      Eel_8: -1100705843
+      Eel_9: -1840315938
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

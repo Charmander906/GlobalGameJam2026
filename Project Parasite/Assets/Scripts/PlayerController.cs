@@ -1,15 +1,12 @@
 ﻿using UnityEngine;
 using UnityEngine.InputSystem;
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
     [Header("Player Settings")]
     public bool isSwimming = true;
     public GameObject control;
-    //public AudioClip hitSound;
 
     [Header("Sprite Settings")]
     public GameObject sprite;
@@ -29,31 +26,61 @@ public class PlayerController : MonoBehaviour
 
     [Header("Camera Settings")]
     public Camera cam;
-    
+
+    [Header("Particles")]
+    public ParticleSystem possessionParticles;
+    public float burstDuration = 0.3f;
+    public float hoverDuration = 0.2f;
+    public float homingGravity = 50f; // acceleration toward center
+    public float maxHomingSpeed = 25f; // clamp max speed
+
     private Rigidbody2D rb;
-    private Vector3 spawnPoint;
     private Vector2 targetVelocity;
-    private float currentAngle;
-    private bool facingRight;
     private float currentTilt;
-    private static bool dashing = false;
-    private static bool hasDash = true;
-    //private AudioSource audioSource;
+    private bool dashing = false;
+    private bool hasDash = true;
+
+    // Particle animation
+    private enum ParticlePhase { None, Burst, Hover, Homing }
+    private class PossessionParticle
+    {
+        public int index;
+        public Vector3 velocity;
+        public float phaseTimer;
+        public ParticlePhase phase;
+    }
+    private List<PossessionParticle> activeParticles = new List<PossessionParticle>();
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         rb.freezeRotation = true;
 
-        spawnPoint = transform.position;
-
         if (cam == null) cam = Camera.main;
 
-        //audioSource = gameObject.AddComponent<AudioSource>();
-        //audioSource.spatialBlend = 0f;
+        if (possessionParticles == null)
+            Debug.LogWarning("No particle system assigned on PlayerController.");
     }
 
     void Update()
+    {
+        HandleMovementInput();
+        HandleDashInput();
+        HandlePossessInput();
+        HandleParticles();
+    }
+
+    void FixedUpdate()
+    {
+        rb.linearVelocity = Vector2.Lerp(rb.linearVelocity, targetVelocity, moveDrag * Time.fixedDeltaTime);
+
+        if (targetVelocity.magnitude < 0.05f)
+            rb.linearVelocity = Vector2.Lerp(rb.linearVelocity, targetVelocity, stopDrag * Time.fixedDeltaTime);
+
+        RotateSpriteTowardsMouse();
+    }
+
+    private void HandleMovementInput()
     {
         Vector2 mouseScreenPos = Mouse.current.position.ReadValue();
         Vector3 mouseWorldPos = cam.ScreenToWorldPoint(mouseScreenPos);
@@ -65,14 +92,11 @@ public class PlayerController : MonoBehaviour
         if (isSwimming)
         {
             if (distance <= stopRadius)
-            {
                 targetVelocity = Vector2.zero;
-            }
             else
             {
-                if (dashing) {
+                if (dashing)
                     targetVelocity = toMouse.normalized * dashSpeed;
-                }
                 else
                 {
                     float speedFactor = Mathf.Clamp01((distance - stopRadius) / (slowRadius - stopRadius));
@@ -84,120 +108,191 @@ public class PlayerController : MonoBehaviour
         else
         {
             targetVelocity = Vector2.zero;
-            rb.position = control.GetComponent<Rigidbody2D>().position;
-        }
-
-        //Dash script
-        if (Mouse.current.leftButton.wasPressedThisFrame && hasDash) {
-            dashing = true;
-            hasDash = false;
-            Invoke("DashingFalse", dashDuration);
-        }
-        //Dash script end
-
-        if (Mouse.current.rightButton.wasPressedThisFrame)
-        {
-            if (isSwimming)
-            {
-                control = CheckPossess();
-                if (control != null)
-                {
-                    control.GetComponent<FishController>().isControlled = true;
-                    isSwimming = false;
-                    sprite.GetComponent<SpriteRenderer>().enabled = false;
-                    GetComponent<BoxCollider2D>().enabled = false;
-                    //audioSource.PlayOneShot(possessSound);
-                }
-            }
-            else
-            {
-                GameObject tempControl = CheckPossess();
-
-                isSwimming = true;
-                sprite.GetComponent<SpriteRenderer>().enabled = true;
-                GetComponent<BoxCollider2D>().enabled = true;
-                //audioSource.PlayOneShot(depossessSound);
-                control.GetComponent<FishController>().isControlled = false;
-
-                rb.linearVelocity = Vector2.zero;
-            }
+            if (control != null)
+                rb.position = control.GetComponent<Rigidbody2D>().position;
         }
     }
 
-    void FixedUpdate()
+    private void RotateSpriteTowardsMouse()
     {
-        rb.linearVelocity = Vector2.Lerp(rb.linearVelocity, targetVelocity, moveDrag * Time.fixedDeltaTime);
+        if (sprite == null) return;
 
-        if (targetVelocity.magnitude < 0.05f)
-            rb.linearVelocity = Vector2.Lerp(rb.linearVelocity, targetVelocity, stopDrag * Time.fixedDeltaTime);
+        Vector2 mouseScreenPos = Mouse.current.position.ReadValue();
+        Vector3 mouseWorldPos = cam.ScreenToWorldPoint(mouseScreenPos);
+        mouseWorldPos.z = 0f;
 
-        Vector2 vel = rb.linearVelocity;
-
-        if (vel.sqrMagnitude > 0.01f)
-        {
-            vel.Normalize();
-
-            bool facingRight_ = vel.x >= 0f;
-            if (facingRight_ != facingRight)
-            {
-                currentTilt *= -1f;
-                facingRight = facingRight_;
-            }
-
-            sprite.transform.localScale = new Vector3(facingRight ? 1f : -1f, 1f, 1f);
-
-            float targetTilt = Mathf.Clamp(vel.y * rotationMultiplier * 45f, -80f, 80f) * (facingRight ? 1f : -1f);
-
-            currentTilt = Mathf.Lerp(currentTilt, targetTilt, turnSpeed * Time.fixedDeltaTime);
-        }
-        else
-        {
-            currentTilt = Mathf.Lerp(currentTilt, 0f, turnSpeed * Time.fixedDeltaTime);
-        }
-
+        Vector3 dir = mouseWorldPos - sprite.transform.position;
+        float targetAngle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        currentTilt = Mathf.LerpAngle(currentTilt, targetAngle, turnSpeed * Time.deltaTime);
         sprite.transform.rotation = Quaternion.Euler(0f, 0f, currentTilt);
     }
 
-    private void OnTriggerStay2D(Collider2D other)
+    private void HandleDashInput()
     {
-
+        if (Mouse.current.leftButton.wasPressedThisFrame && hasDash)
+        {
+            dashing = true;
+            hasDash = false;
+            Invoke(nameof(StopDash), dashDuration);
+        }
     }
 
-    private GameObject CheckPossess()
+    private void StopDash()
     {
-        GameObject controlN = null;
+        dashing = false;
+        Invoke(nameof(ResetDash), dashCooldown);
+    }
 
-        BoxCollider2D box = GetComponent<BoxCollider2D>();
-        Collider2D[] results = Physics2D.OverlapBoxAll(
-            transform.position,
-            box.size,
-            0f
-        );
+    private void ResetDash()
+    {
+        hasDash = true;
+    }
 
-        foreach (Collider2D collider in results)
+    private void HandlePossessInput()
+    {
+        if (isSwimming && control != null && control.GetComponent<FishController>().blackProgress >= 1.0f) possessionParticles.Emit(50);
+
+        if (!Mouse.current.rightButton.wasPressedThisFrame) return;
+
+        if (isSwimming)
         {
-            if (collider.gameObject.tag == "possess")
+            GameObject newControl = CheckPossess();
+            if (newControl != null)
             {
-                if (controlN == null) controlN = collider.gameObject;
-                else
+                control = newControl;
+                isSwimming = false;
+                control.GetComponent<FishController>().isControlled = true;
+                sprite.GetComponent<SpriteRenderer>().enabled = false;
+                GetComponent<BoxCollider2D>().enabled = false;
+
+                if (possessionParticles != null)
                 {
-                    Vector3 distanceC = controlN.transform.position - transform.position;
-                    Vector3 distanceN = collider.gameObject.transform.position - transform.position;
-                    if (distanceN.magnitude < distanceC.magnitude)
+                    var emission = possessionParticles.emission;
+                    emission.enabled = false;
+
+                    if (possessionParticles.particleCount == 0)
+                    possessionParticles.Emit(50);
+
+                    ParticleSystem.Particle[] particles = new ParticleSystem.Particle[possessionParticles.main.maxParticles];
+                    int count = possessionParticles.GetParticles(particles);
+
+                    activeParticles.Clear();
+
+                    for (int i = 0; i < count; i++)
                     {
-                        controlN = collider.gameObject;
+                        PossessionParticle p = new PossessionParticle();
+                        p.index = i;
+
+                        Vector2 vel2D = Random.insideUnitCircle.normalized * Random.Range(4f, 8f);
+                        p.velocity = new Vector3(vel2D.x, vel2D.y, 0f);
+
+                        p.phase = ParticlePhase.Burst;
+                        p.phaseTimer = 0f;
+
+                        activeParticles.Add(p);
                     }
                 }
             }
         }
+        else
+        {
+            isSwimming = true;
+            if (sprite != null) sprite.GetComponent<SpriteRenderer>().enabled = true;
+            GetComponent<BoxCollider2D>().enabled = true;
 
-        return controlN;
+            if (control != null)
+            {
+                control.GetComponent<FishController>().isControlled = false;
+                rb.linearVelocity = Vector2.zero;
+            }
+
+            if (possessionParticles != null)
+            {
+                var emission = possessionParticles.emission;
+                emission.enabled = true;
+                activeParticles.Clear();
+            }
+
+            control = null;
+        }
     }
-    void DashingFalse(){
-        dashing = false;
-        Invoke("DashCooldown", dashCooldown);
+
+    private void HandleParticles()
+    {
+        if (activeParticles.Count == 0 || possessionParticles == null) return;
+
+        ParticleSystem.Particle[] particles = new ParticleSystem.Particle[possessionParticles.main.maxParticles];
+        int count = possessionParticles.GetParticles(particles);
+
+        activeParticles.RemoveAll(p => p.index >= count);
+
+        for (int i = activeParticles.Count - 1; i >= 0; i--)
+        {
+            PossessionParticle p = activeParticles[i];
+
+            switch (p.phase)
+            {
+                case ParticlePhase.Burst:
+                    particles[p.index].position += p.velocity * Time.deltaTime;
+                    p.velocity *= Mathf.Pow(0.9f, Time.deltaTime * 60f);
+                    p.phaseTimer += Time.deltaTime;
+                    if (p.phaseTimer >= burstDuration)
+                    {
+                        p.phase = ParticlePhase.Hover;
+                        p.phaseTimer = 0f;
+                        p.velocity = Vector3.zero;
+                    }
+                    break;
+
+                case ParticlePhase.Hover:
+                    p.phaseTimer += Time.deltaTime;
+                    if (p.phaseTimer >= hoverDuration)
+                    {
+                        p.phase = ParticlePhase.Homing;
+                        p.phaseTimer = 0f;
+                    }
+                    break;
+
+                case ParticlePhase.Homing:
+                    Vector3 dir = -particles[p.index].position;
+                    p.velocity += dir.normalized * homingGravity * Time.deltaTime;
+                    if (p.velocity.magnitude > maxHomingSpeed)
+                        p.velocity = p.velocity.normalized * maxHomingSpeed;
+
+                    particles[p.index].position += p.velocity * Time.deltaTime;
+
+                    if (dir.magnitude < 0.05f)
+                    {
+                        particles[p.index].remainingLifetime = 0f;
+                        activeParticles.RemoveAt(i);
+                        continue;
+                    }
+                    break;
+            }
+        }
+
+        possessionParticles.SetParticles(particles, count);
     }
-    void DashCooldown() {
-        hasDash = true;
+
+    private GameObject CheckPossess()
+    {
+        GameObject closest = null;
+        BoxCollider2D box = GetComponent<BoxCollider2D>();
+        Collider2D[] results = Physics2D.OverlapBoxAll(transform.position, box.size, 0f);
+
+        foreach (Collider2D collider in results)
+        {
+            if (collider.gameObject.CompareTag("possess"))
+            {
+                if (closest == null) closest = collider.gameObject;
+                else
+                {
+                    float currentDist = (closest.transform.position - transform.position).sqrMagnitude;
+                    float newDist = (collider.transform.position - transform.position).sqrMagnitude;
+                    if (newDist < currentDist) closest = collider.gameObject;
+                }
+            }
+        }
+        return closest;
     }
 }
