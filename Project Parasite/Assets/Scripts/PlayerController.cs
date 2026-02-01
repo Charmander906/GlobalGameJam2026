@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
     public float dashSpeed = 35f;
     public float dashDuration = 0.25f;
     public float dashCooldown = 1f;
+    public float possessRadius = 1f;
 
     [Header("Camera Settings")]
     public Camera cam;
@@ -156,7 +157,7 @@ public class PlayerController : MonoBehaviour
 
         if (isSwimming)
         {
-            GameObject newControl = CheckPossess();
+            GameObject newControl = CheckPossess(possessRadius);
             if (newControl != null)
             {
                 control = newControl;
@@ -274,25 +275,30 @@ public class PlayerController : MonoBehaviour
         possessionParticles.SetParticles(particles, count);
     }
 
-    private GameObject CheckPossess()
+    private GameObject CheckPossess(float radius = 1f)
     {
         GameObject closest = null;
-        BoxCollider2D box = GetComponent<BoxCollider2D>();
-        Collider2D[] results = Physics2D.OverlapBoxAll(transform.position, box.size, 0f);
+
+        Collider2D[] results = Physics2D.OverlapCircleAll(transform.position, radius);
 
         foreach (Collider2D collider in results)
         {
             if (collider.gameObject.CompareTag("possess"))
             {
-                if (closest == null) closest = collider.gameObject;
+                if (closest == null)
+                {
+                    closest = collider.gameObject;
+                }
                 else
                 {
                     float currentDist = (closest.transform.position - transform.position).sqrMagnitude;
                     float newDist = (collider.transform.position - transform.position).sqrMagnitude;
-                    if (newDist < currentDist) closest = collider.gameObject;
+                    if (newDist < currentDist)
+                        closest = collider.gameObject;
                 }
             }
         }
+
         return closest;
     }
 }

@@ -84,7 +84,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 5621443916960187860, guid: 3f5db50816e6a8e40bcdfefd8a697237, type: 3}
+  m_Sprite: {fileID: 878491369775145097, guid: 3f5db50816e6a8e40bcdfefd8a697237, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -124,7 +124,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -182,9 +182,10 @@ MonoBehaviour:
   - {fileID: -6964278296985575953, guid: 3f5db50816e6a8e40bcdfefd8a697237, type: 3}
   - {fileID: 5621443916960187860, guid: 3f5db50816e6a8e40bcdfefd8a697237, type: 3}
   animationFPS: 12
-  initialSpinSpeed: 1080
-  rotationEaseTime: 0.5
   moveSpeed: 10
+  rotationSpeed: 720
+  followTarget: {fileID: 0}
+  positionOffset: {x: 0.783, y: 1.032}
 --- !u!50 &-7369741837879372732
 Rigidbody2D:
   serializedVersion: 5

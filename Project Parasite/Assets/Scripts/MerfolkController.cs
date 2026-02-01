@@ -268,19 +268,33 @@ public class MerfolkController : MonoBehaviour, IHasPlayer
     {
         if (tridentPrefab == null || player == null) return;
 
-        GameObject tridentObj = Instantiate(tridentPrefab, transform.position, Quaternion.identity);
+        Vector3 spawnPos = transform.position;
+        spawnPos.z += tridentZOffset;
+        GameObject tridentObj = Instantiate(tridentPrefab, spawnPos, Quaternion.identity);
+
         TridentProjectile trident = tridentObj.GetComponent<TridentProjectile>();
-        
+        if (trident == null) return;
+
         trident.player = player;
+        trident.followTarget = this.transform;
+
+        SpriteRenderer tridentSR = tridentObj.GetComponent<SpriteRenderer>();
+        if (tridentSR != null)
+            tridentSR.flipX = sr.flipX;
 
         trident.ForceStartAnimation();
 
         Collider2D tridentCol = trident.GetComponent<Collider2D>();
+        Collider2D merfolkCol = GetComponent<Collider2D>();
+
         if (tridentCol != null)
         {
+            if (merfolkCol != null)
+                Physics2D.IgnoreCollision(tridentCol, merfolkCol);
+
             foreach (GameObject obj in GameObject.FindGameObjectsWithTag("intangible"))
             {
-                if (obj == trident.gameObject) continue;
+                if (obj == tridentObj) continue;
                 Collider2D otherCol = obj.GetComponent<Collider2D>();
                 if (otherCol != null)
                     Physics2D.IgnoreCollision(tridentCol, otherCol);
