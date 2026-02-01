@@ -110,13 +110,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   isControlled: 0
   player: {fileID: 0}
-  moveSpeed: 6
-  maxSpeed: 7
+  moveSpeed: 18
+  maxSpeed: 15
   stopDrag: 4
   moveDrag: 2
-  slowRadius: 2.5
+  slowRadius: 1.5
   stopRadius: 0.5
-  turnSpeed: 6
+  turnSpeed: 4
+  dashSpeed: 16
+  dashDuration: 1
+  dashCooldown: 1
+  autoDashDistance: 10
   followTarget: {fileID: 0}
   fishSchool: {fileID: 0}
   followVariance: 0.92
@@ -125,7 +129,7 @@ MonoBehaviour:
   controlThreshold: 30
   blackFadeDuration: 10
   blackProgress: 0
-  blackMaxAlpha: 0.8
+  blackMaxDarkness: 0.8
   timeControlled: 0
   fadeOutSpeed: 0.2
   rb: {fileID: 0}
