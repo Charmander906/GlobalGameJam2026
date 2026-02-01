@@ -323,6 +323,24 @@ public class MerfolkController : MonoBehaviour, IHasPlayer
         Collider2D thisCollider = GetComponent<Collider2D>();
         if (thisCollider == null) return;
 
+        GameObject[] possessObjects = GameObject.FindGameObjectsWithTag("possess");
+        foreach (GameObject obj in possessObjects)
+        {
+            Collider2D otherCollider = obj.GetComponent<Collider2D>();
+            if (otherCollider != null)
+                Physics2D.IgnoreCollision(thisCollider, otherCollider);
+        }
+
+        GameObject[] intangibleObjects = GameObject.FindGameObjectsWithTag("intangible");
+        foreach (GameObject obj in intangibleObjects)
+        {
+            if (obj == this.gameObject) continue;
+
+            Collider2D otherCollider = obj.GetComponent<Collider2D>();
+            if (otherCollider != null)
+                Physics2D.IgnoreCollision(thisCollider, otherCollider);
+        }
+
         if (player != null)
         {
             Collider2D playerCollider = player.GetComponent<Collider2D>();

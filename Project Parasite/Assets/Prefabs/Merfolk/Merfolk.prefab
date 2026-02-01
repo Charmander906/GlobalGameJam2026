@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 4945514883931878873}
   m_Layer: 0
   m_Name: Merfolk
-  m_TagString: Untagged
+  m_TagString: intangible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -156,7 +156,7 @@ MonoBehaviour:
   maxSwimSpeed: 5
   nodeReachDistance: 0.2
   idlePauseTime: 1.2
-  chaseSpeed: 20
+  chaseSpeed: 30
   chaseAcceleration: 10
   chaseDrag: 0.5
   normalDrag: 1.5
@@ -170,7 +170,7 @@ MonoBehaviour:
   swayAmplitude: 1
   swayFrequency: 2
   detectionRange: 8.5
-  attackDistance: 6
+  attackDistance: 12
   suspicionBuildRate: 2
   suspicionDecayRate: 0.2
   tridentPrefab: {fileID: 7339118456585847210, guid: b7c64d933f38ff04f8d480559aabacf7, type: 3}
@@ -337,7 +337,7 @@ Transform:
   m_GameObject: {fileID: 4142062559533021150}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 32.1, y: 3.55, z: 0.05}
+  m_LocalPosition: {x: 0, y: 0, z: 0.05}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

@@ -182,10 +182,13 @@ MonoBehaviour:
   - {fileID: -6964278296985575953, guid: 3f5db50816e6a8e40bcdfefd8a697237, type: 3}
   - {fileID: 5621443916960187860, guid: 3f5db50816e6a8e40bcdfefd8a697237, type: 3}
   animationFPS: 12
-  moveSpeed: 20
-  rotationSpeed: 720
+  moveSpeed: 40
+  homingStrength: 1.2
+  maxTurnRate: 90
+  maxPredictionTime: 20
   followTarget: {fileID: 0}
-  positionOffset: {x: 0.783, y: 1.032}
+  positionOffsetRight: {x: 0.9, y: 1.2}
+  positionOffsetLeft: {x: -0.91, y: 1.3}
 --- !u!50 &-7369741837879372732
 Rigidbody2D:
   serializedVersion: 5
