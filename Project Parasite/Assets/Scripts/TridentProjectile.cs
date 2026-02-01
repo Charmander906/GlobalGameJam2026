@@ -199,7 +199,7 @@ public class TridentProjectile : MonoBehaviour
         transform.SetParent(target);
 
         Vector3 localPos = transform.localPosition;
-        localPos.z = 0.01f;
+        localPos.z = 0.1f;
         transform.localPosition = localPos;
     }
 
@@ -224,9 +224,37 @@ public class TridentProjectile : MonoBehaviour
         FishController fish = collision.GetComponent<FishController>();
         if (fish != null && fish.isControlled)
         {
-            StickIntoTarget(fish.transform);
+            Collider2D targetCollider = GetSmallestCollider(fish.gameObject);
+            if (targetCollider != null)
+            {
+                StickIntoTarget(targetCollider.transform);
+            }
+            else
+            {
+                StickIntoTarget(fish.transform);
+            }
             return;
         }
+    }
+    Collider2D GetSmallestCollider(GameObject obj)
+    {
+        BoxCollider2D[] colliders = obj.GetComponents<BoxCollider2D>();
+        if (colliders.Length == 0) return null;
+
+        BoxCollider2D smallest = colliders[0];
+        float minArea = colliders[0].size.x * colliders[0].size.y;
+
+        for (int i = 1; i < colliders.Length; i++)
+        {
+            float area = colliders[i].size.x * colliders[i].size.y;
+            if (area < minArea)
+            {
+                minArea = area;
+                smallest = colliders[i];
+            }
+        }
+
+        return smallest;
     }
 
     public void ForceStartAnimation()
