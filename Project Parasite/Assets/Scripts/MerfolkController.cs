@@ -151,7 +151,7 @@ public class MerfolkController : MonoBehaviour, IHasPlayer
             return;
         }
 
-        SwimToward(toTarget, maxSwimSpeed);
+        if (!playerSpotted) SwimToward(toTarget, maxSwimSpeed);
     }
 
     void AggressiveBehavior()

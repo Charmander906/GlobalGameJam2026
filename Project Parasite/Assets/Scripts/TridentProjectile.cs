@@ -134,8 +134,8 @@ public class TridentProjectile : MonoBehaviour
     {
         if (player == null) return;
 
-        // Set target rotation
         Vector2 dir = (Vector2)(player.transform.position - transform.position);
+        if (sr.flipX) dir = -dir;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         targetRotation = Quaternion.Euler(0f, 0f, angle);
 
@@ -160,7 +160,7 @@ public class TridentProjectile : MonoBehaviour
     void MoveForward()
     {
         if (lodgedInWall || player == null) return;
-        rb.linearVelocity = transform.right * moveSpeed;
+        rb.linearVelocity = transform.right * moveSpeed * (sr.flipX ? -1f : 1f);
     }
 
     public void ForceStartAnimation()
@@ -185,6 +185,7 @@ public class TridentProjectile : MonoBehaviour
             (collision.TryGetComponent<FishController>(out FishController fish) && fish.isControlled))
         {
             rb.linearVelocity = Vector2.zero;
+            transform.position += transform.right * moveSpeed * Time.deltaTime * (sr.flipX ? -1f : 1f);
             lodgedInWall = true;
         }
     }
