@@ -32,6 +32,7 @@ public class AudioManager : MonoBehaviour
     void Update()
     {
         desiredTrack = Mathf.FloorToInt(transform.position.y / mapHeight * musicClips.Length);
+        if (desiredTrack > musicClips.Length - 1) desiredTrack = musicClips.Length - 1;
         if (transform.position.x < 175 && musicSource.clip != theme)
         {
             musicSource.clip = theme;
